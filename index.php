@@ -1,32 +1,70 @@
-<?php
+<html>
+  <head>
+    <?php include 'inc/header.inc' ;?>
+    <script>
+      function post(path, params, method) {
+        method = method || "post";
 
-$curl = curl_init();
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
 
-curl_setopt_array($curl, array(
-  CURLOPT_URL => "http://api.runkeeper.com/fitnessActivities?pageSize=1",
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => "",
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 30,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_HTTPHEADER => array(
-    "accept: application/vnd.com.runkeeper.FitnessActivityFeed+json",
-    "authorization: Bearer 4efd210f1dfb43ba97b877ca52ffaa4b",
-    "cache-control: no-cache",
-    "postman-token: 922e76fe-08f6-65cb-729a-d7b332ad3d7c"
-  ),
-));
+        for(var key in params) {
+            if(params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+                form.appendChild(hiddenField);
+             }
+        }
+        document.body.appendChild(form);
+        form.submit();
+      }
+    </script>
+  </head>
+  <body class="homepage">
 
-$response = curl_exec($curl);
-$err = curl_error($curl);
+	<!-- Header -->
+		<div id="header">
+			<div class="container">
 
-curl_close($curl);
+				<!-- Logo -->
+				<div id="logo">
+          <img src="images/CIT.png" width="30%"></img>
+					<h1><a href="#">Runners</a></h1>
+				</div>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+			</div>
+		</div>
+	<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<section>
+					<header>
+						<h2>Let's run!</h2>
+						<span class="byline">Run now. Sleep later.</span>
+					</header>
+				</section>
+			</div>
+		</div>
 
-if ($err) {
-  echo "cURL Error #:" . $err;
-} else {
-  $result = json_decode($response);
-
-  var_dump($result);
-}
+	<!-- Copyright -->
+		<div id="copyright">
+			<div class="container">
+				Contact: <a href="mailto:douglass@ciant.com">Douglas Siqueira</a>
+			</div>
+		</div>
+    <script>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        var domain = profile.getEmail().split("@");
+        if (domain[1] == 'ciandt.com') {
+          post('/app.php', {name: profile.getName(), image: profile.getImageUrl(), email: profile.getEmail()});
+        } else {
+          window.location = "error.php";
+        }
+      }
+    </script>
+	</body>
+</html>
