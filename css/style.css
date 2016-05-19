@@ -292,6 +292,15 @@
 		color: #FFF !important;
 	}
 
+	.button-inative
+	{
+		background: #777777;
+	}
+	.button-inative:hover
+	{
+		background: #6B696A;
+	}
+
 /*********************************************************************************/
 /* Icons                                                                         */
 /* Powered by Font Awesome by Dave Gandy | http://fontawesome.io                 */

@@ -1,58 +1,5 @@
 <?php
-var_dump($_POST);
-  include('runkeeperAPI.class.php');
-
-  $rkAPI = new runkeeperAPI('config/rk-api.sample.yml');
-  if ($_GET['code']) {
-  	$auth_code = $_GET['code'];
-  	if ($rkAPI->getRunkeeperToken($auth_code) == false) {
-  		echo $rkAPI->api_last_error; /* get access token problem */
-  		exit();
-  	}
-  	else {
-  		/* Your code to store $rkAPI->access_token (client-side, server-side or session-side) */
-  		/* Note: $rkAPI->access_token will have to be set et valid for following operations */
-
-  		/* Do a "Read" request on "Profile" interface => return all fields available for this Interface */
-  		$rkProfile = $rkAPI->doRunkeeperRequest('Profile','Read');
-  		print_r($rkProfile);
-
-  		/* Do a "Read" request on "Settings" interface => return all fields available for this Interface */
-  		$rkSettings = $rkAPI->doRunkeeperRequest('Settings','Read');
-  		print_r($rkSettings);
-
-  		/* Do a "Read" request on "FitnessActivities" interface => return all fields available for this Interface or false if request fails */
-  		$rkActivities = $rkAPI->doRunkeeperRequest('FitnessActivities','Read');
-  		if ($rkActivities) {
-  			print_r($rkActivities);
-  		}
-  		else {
-  			echo $rkAPI->api_last_error;
-  			print_r($rkAPI->request_log);
-  		}
-
-  		/* Do a "Read" request on "FitnessActivityFeed" interface => return all fields available for this Interface or false if request fails */
-  		$rkActivities = $rkAPI->doRunkeeperRequest('FitnessActivityFeed','Read');
-  		if ($rkUpdateActivity) {
-  			print_r($rkUpdateActivity);
-  		}
-  		else {
-  			echo $rkAPI->api_last_error;
-  			print_r($rkAPI->request_log);
-  		}
-
-  		/* Do a "Create" request on "FitnessActivity" interface with fields => return created FitnessActivity content if request success, false if not */
-  		$fields = json_decode('{"type": "Running", "equipment": "None", "start_time": "Sat, 1 Jan 2011 00:00:00", "notes": "My first late-night run", "path": [{"timestamp":0, "altitude":0, "longitude":-70.95182336425782, "latitude":42.312620297384676, "type":"start"}, {"timestamp":8, "altitude":0, "longitude":-70.95255292510987, "latitude":42.31230294498018, "type":"end"}], "post_to_facebook": true, "post_to_twitter": true}');
-  		$rkCreateActivity = $rkAPI->doRunkeeperRequest('NewFitnessActivity','Create',$fields);
-  		if ($rkCreateActivity) {
-  			print_r($rkCreateActivity);
-  		}
-  		else {
-  			echo $rkAPI->api_last_error;
-  			print_r($rkAPI->request_log);
-  		}
-  	}
-  }
+  var_dump($_POST);
 
   echo "Token: " . $token;
 
@@ -82,7 +29,7 @@ var_dump($_POST);
 				<!-- Logo -->
 				<div id="logo">
 
-          <h1><a href="#"><img src="<?php print $image; ?>"></img></a></h1>
+          <h1><a href="#"><img src="<?php print $image; ?>" style="border-radius: 10px;"></img></a></h1>
 					<span class="tag"><?php print $name?></span>
 				</div>
 			</div>
@@ -97,10 +44,15 @@ var_dump($_POST);
   				<p>Every day we get the information so your application to add to our database automatically. So run and enjoy!</p>
   				<hr />
   				<div class="row">
-  					<section class="12u">
+            <section class="6u">
+              <span class="pennant"><img src="images/strava.png" width="100px"></img></span>
+              <h3>Strava</h3>
+              <a href="https://runkeeper.com/apps/authorize?client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&scope=&state=4082225&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2Fapp.php&response_type=code" class="button">Connect</a>
+            </section>
+  					<section class="6u">
   						<span class="pennant"><img src="images/runkeeper.png" width="100px"></img></span>
   						<h3>Runkeeper</h3>
-              <a href="https://runkeeper.com/apps/authorize?client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&scope=&state=4082225&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2Fapp.php&response_type=code" class="button button-style1">Connect</a>
+              <a href="https://runkeeper.com/apps/authorize?client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&scope=&state=4082225&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2Fapp.php&response_type=code" class="button button-inative">Developing</a>
   					</section>
   				</div>
   			</div>
@@ -114,8 +66,8 @@ var_dump($_POST);
   				<hr />
   				<div class="row">
   					<section class="2u">
-  						<span class="pennant"><img src="images/strava.png" width="100px"></img></span>
-  						<h3>Strava</h3>
+  						<span class="pennant"><img src="images/googlefit.png" width="100px"></img></span>
+  						<h3>Google Fit</h3>
               <a href="" class="button button-style1">Connect</a>
   					</section>
             <section class="2u">
@@ -155,6 +107,7 @@ var_dump($_POST);
 			</div>
 		</div>
 	<!-- /Tweet -->
+  <?php include 'inc/footer.inc' ;?>
   <script>
     function signOut() {
       var auth2 = gapi.auth2.getAuthInstance();
