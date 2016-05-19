@@ -292,14 +292,10 @@
 		color: #FFF !important;
 	}
 
-	.button-inative
-	{
-		background: #777777;
-	}
-	.button-inative:hover
-	{
-		background: #6B696A;
-	}
+	.button-inative	{background: #777777;}
+	.button-inative:hover {background: #6B696A;}
+	.button-disconnect {background: #EB4B5B;}
+	.button-disconnect:hover {background: #C91E2F;}
 
 /*********************************************************************************/
 /* Icons                                                                         */

@@ -1,8 +1,19 @@
 <?php
-  var_dump($_POST);
-
-  echo "Token: " . $token;
-
+	include('lib/smartCanvasAPI.php');
+  $post = new smartCanvasAPI;
+	
+	$title = 'Teste LIB PHP';
+	$content = 'Testando biblioteca PHP';
+	$shareWith = '["organization", "5712425286369280"]';
+	$cover = 'http://blog.zend.com/wp-content/uploads/2013/09/elephant-queue.jpg';
+	
+	//post->postCard($title, $content, $shareWith, $cover);
+	
+	var_dump($_POST);
+	$isConnected = FALSE;
+	if ($_GET['code']) {
+		$isConnected = TRUE;
+	}
 
   $name   = $_POST['name'];
   $image  = $_POST['image'];
@@ -28,7 +39,6 @@
 			<div class="container">
 				<!-- Logo -->
 				<div id="logo">
-
           <h1><a href="#"><img src="<?php print $image; ?>" style="border-radius: 10px;"></img></a></h1>
 					<span class="tag"><?php print $name?></span>
 				</div>
@@ -47,7 +57,11 @@
             <section class="6u">
               <span class="pennant"><img src="images/strava.png" width="100px"></img></span>
               <h3>Strava</h3>
-              <a href="https://runkeeper.com/apps/authorize?client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&scope=&state=4082225&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2Fapp.php&response_type=code" class="button">Connect</a>
+							<?php if($isConnected):?>
+								<a href="#" class="button button-disconnect">Disconnect</a>
+							<?php else :?>
+								<a href="https://www.strava.com/oauth/authorize?client_id=11678&response_type=code&redirect_uri=http://ssl-310157.uni5.net/app.php&approval_prompt=force" class="button">Connect</a>
+							<?php endif; ?>
             </section>
   					<section class="6u">
   						<span class="pennant"><img src="images/runkeeper.png" width="100px"></img></span>
@@ -77,7 +91,7 @@
   					</section>
             <section class="2u">
   						<span class="pennant"><img src="images/adidas.jpeg" width="100px"></img></span>
-  						<h3>Adidas train & run</h3>
+  						<h3>Adidas Run</h3>
               <a href="" class="button button-style1">Connect</a>
   					</section>
             <section class="2u">
