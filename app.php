@@ -9,7 +9,7 @@
 	
 	//post->postCard($title, $content, $shareWith, $cover);
 	
-	var_dump($_POST);
+	//var_dump($_POST);
 	$isConnected = FALSE;
 	if ($_GET['code']) {
 		$isConnected = TRUE;
@@ -19,116 +19,156 @@
   $image  = $_POST['image'];
 ?>
 <html>
-<head>
-  <?php include 'inc/header.inc' ;?>
-</head>
-  <body>
-	<!-- Header -->
-		<div id="header">
-			<div id="nav-wrapper">
-				<!-- Nav -->
-				<nav id="nav">
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Next Step</a></li>
-						<li class="active"><a href="#" onclick="signOut();">Sign out</a></li>
-					</ul>
-				</nav>
-			</div>
-			<div class="container">
-				<!-- Logo -->
-				<div id="logo">
-          <h1><a href="#"><img src="<?php print $image; ?>" style="border-radius: 10px;"></img></a></h1>
-					<span class="tag"><?php print $name?></span>
-				</div>
-			</div>
-		</div>
-	<!-- Header -->
-  <!-- Featured -->
-  		<div id="featured">
-  			<div class="container">
-  				<header>
-  					<h2>Connect Your App</h2>
-  				</header>
-  				<p>Every day we get the information so your application to add to our database automatically. So run and enjoy!</p>
-  				<hr />
-  				<div class="row">
-            <section class="6u">
-              <span class="pennant"><img src="images/strava.png" width="100px"></img></span>
-              <h3>Strava</h3>
-							<?php if($isConnected):?>
-								<a href="#" class="button button-disconnect">Disconnect</a>
-							<?php else :?>
-								<a href="https://www.strava.com/oauth/authorize?client_id=11678&response_type=code&redirect_uri=http://ssl-310157.uni5.net/app.php&approval_prompt=force" class="button">Connect</a>
-							<?php endif; ?>
-            </section>
-  					<section class="6u">
-  						<span class="pennant"><img src="images/runkeeper.png" width="100px"></img></span>
-  						<h3>Runkeeper</h3>
-              <a href="https://runkeeper.com/apps/authorize?client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&scope=&state=4082225&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2Fapp.php&response_type=code" class="button button-inative">Developing</a>
-  					</section>
-  				</div>
-  			</div>
-  		</div>
-      <div id="featured">
-  			<div class="container">
-  				<header>
-  					<h2>Next Integration</h2>
-  				</header>
-  				<p>Choose application integration. Your opinion is important.</p>
-  				<hr />
-  				<div class="row">
-  					<section class="2u">
-  						<span class="pennant"><img src="images/googlefit.png" width="100px"></img></span>
-  						<h3>Google Fit</h3>
-              <a href="" class="button button-style1">Connect</a>
-  					</section>
-            <section class="2u">
-  						<span class="pennant"><img src="images/nikerunning.png" width="100px"></img></span>
-  						<h3>Nike + Running</h3>
-              <a href="" class="button button-style1">Connect</a>
-  					</section>
-            <section class="2u">
-  						<span class="pennant"><img src="images/adidas.jpeg" width="100px"></img></span>
-  						<h3>Adidas Run</h3>
-              <a href="" class="button button-style1">Connect</a>
-  					</section>
-            <section class="2u">
-  						<span class="pennant"><img src="images/mapmyrun.png" width="100px"></img></span>
-  						<h3>MapMyRun</h3>
-              <a href="" class="button button-style1">Connect</a>
-  					</section>
-            <section class="2u">
-  						<span class="pennant"><img src="images/endomondo.png" width="100px"></img></span>
-  						<h3>Endomondo</h3>
-              <a href="" class="button button-style1">Connect</a>
-  					</section>
-            <section class="2u">
-  						<span class="pennant"><img src="images/runtastic.png" width="100px"></img></span>
-  						<h3>Runtastic</h3>
-              <a href="" class="button button-style1">Connect</a>
-  					</section>
-  				</div>
-  			</div>
-  		</div>
-	<!-- Tweet -->
-		<div id="tweet">
-			<div class="container">
-				<section>
-					<blockquote>&ldquo;Run, Forrest, Run!&rdquo;</blockquote>
-				</section>
-			</div>
-		</div>
-	<!-- /Tweet -->
-  <?php include 'inc/footer.inc' ;?>
-  <script>
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-      });
-    }
-  </script>
-  </body>
+    <head>
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.light_blue-pink.min.css" />
+        <style>
+        .demo-card-square.mdl-card {
+        width: 320px;
+        height: 320px;
+        }
+        .demo-card-square > .mdl-card__title {
+        background:
+            url('images/dog.png') bottom right 15% no-repeat #46B6AC;
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">CI&T Runners</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Home</a>
+                    <a class="mdl-navigation__link" href="">About</a>
+                    <a class="mdl-navigation__link" href="">Next Step</a>
+                    <a class="mdl-navigation__link" href="">Sing Out</a>
+                    <img src="https://lh4.googleusercontent.com/-7VQwiIQW9tc/AAAAAAAAAAI/AAAAAAAAABE/05PlkhseRBk/s96-c/photo.jpg" style="width: 50px;border-radius: 30px;"></img>
+                </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Title</span>
+                <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Home</a>
+                <a class="mdl-navigation__link" href="">About</a>
+                <a class="mdl-navigation__link" href="">Next Step</a>
+                <a class="mdl-navigation__link" href="">Sing Out</a>
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h2>Connect Your App</h2>
+                            <h6>Every day we get the information so your application to add to our database automatically. So run and enjoy!</h6>
+                        </div>
+                    </div>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/strava.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Strava</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</button>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="mdl-cell mdl-cell--6-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/runkeeper.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Runkeeper</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--raised" disabled>Developing</button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h2>Next Integration</h2>
+                            <h6>Choose application integration. Your opinion is important.</h6>
+                        </div>
+                    </div>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Google Fit</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                    <span>(0)</span>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/nikerunning.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Nike + Running</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/adidas.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Adidas Run</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/mapmyrun.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">MapMyRun</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/endomondo.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Endomondo</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="mdl-cell mdl-cell--3-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/runtastic.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Runtastic</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>     
+                </div>
+            </main>
+        </div>
+    </body>
 </html>

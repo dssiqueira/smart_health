@@ -1,10 +1,10 @@
 <?php
 class smartCanvasAPI {
-    public $api_key     = 'xxxxxxxxxxxxxx';
-    public $url_POST    = 'xxxxxxxxxxxxxx';
-    public $url_GET     = 'xxxxxxxxxxxxxx';
-    public $url_DELETE  = 'xxxxxxxxxxxxxx';
-    public $url_PUT     = 'xxxxxxxxxxxxxx';
+    public $api_key     = 'hltklw9Tt3XP';
+    public $url_POST    = 'https://api-dev.smartcanvas.com/v1/posts';
+    public $url_GET     = 'https://api-dev.smartcanvas.com/v1/posts';
+    public $url_DELETE  = 'https://api-dev.smartcanvas.com/v1/posts';
+    public $url_PUT     = 'https://api-dev.smartcanvas.com/v1/posts';
     
     public function postCard($title, $content, $shareWith, $cover, $boards = '[]', $tags = '[]') {
         $curl = curl_init();

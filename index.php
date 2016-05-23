@@ -1,6 +1,8 @@
 <html>
   <head>
-    <?php include 'inc/header.inc' ;?>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+    <meta name="google-signin-client_id" content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">
     <script>
       function post(path, params, method) {
         method = method || "post";
@@ -24,7 +26,7 @@
     </script>
   </head>
   <body class="homepage">
-
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
 	<!-- Header -->
 		<div id="header">
 			<div class="container">
@@ -34,10 +36,9 @@
           <img src="images/CIT.png" width="30%"></img>
 					<h1><a href="#">Runners</a></h1>
 				</div>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        
 			</div>
 		</div>
-	 <?php include 'inc/footer.inc' ;?>
     <script>
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
