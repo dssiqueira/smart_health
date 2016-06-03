@@ -10,8 +10,7 @@
 	
 	$user = $user->getUserByEmail($email);
 	
-	if(empty($user->uid)){
-		echo "vai inserir";
+	if(empty($user->uid) && !empty($email)){
 		$user->insertUser($email, $name, $path_image);
 	} else {
 		
@@ -101,7 +100,7 @@
                                     <h2 class="mdl-card__title-text">Runkeeper</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-                                    <a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveIntegration.php" class="mdl-button mdl-js-button mdl-button--accent">Developing</a>
+																		<a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveIntegration.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
                                 </div>
                             </div> 
                         </div>
