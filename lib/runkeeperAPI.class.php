@@ -23,13 +23,13 @@
 */
 
 class runkeeperAPI {
-	private $client_id;
-	private $client_secret;
-	private $auth_url;
-	private $access_token_url;
-	private $redirect_uri;
-	private $api_base_url;
-	private $api_conf_file;
+	private $client_id = '8ca1c685ee4a4ad88ffcddfe24f3d0cf';
+	private $client_secret = 'b82055792ae344aea00f5dc3c176727a';
+	private $auth_url = 'https://runkeeper.com/apps/authorize';
+	private $access_token_url = 'https://runkeeper.com/apps/token';
+	private $redirect_uri = 'https://ssl-310157.uni5.net/saveIntegration.php';
+	private $api_base_url = 'https://api.runkeeper.com';
+	private $api_conf_file = '';
 	public $api_conf;
 	public $api_created = false;
 	public $api_last_error = null;
@@ -38,44 +38,8 @@ class runkeeperAPI {
 	public $requestRedirectUrl = null;
 	public $api_request_log = null;
 
-	public function __construct($api_conf_file) {
-		$this->api_conf_file = $api_conf_file;
-		if (!class_exists('sfYamlParser')) {
-			$this->api_last_error = "Symfony YAML (https://github.com/fabpot/yaml) not found or misconfigured";
-			$this->api_created = false;
-		}
-		elseif (!function_exists('curl_init')) {
-			$this->api_last_error = "No support found for cURL (http://www.php.net/manual/en/book.curl.php)";
-			$this->api_created = false;
-		}
-		elseif (!function_exists('json_decode') || !function_exists('json_encode')) {
-			$this->api_last_error = "No support found for json (http://fr2.php.net/manual/en/book.json.php)";
-			$this->api_created = false;
-		}
-		else {
-			try {
-				$yaml = new sfYamlParser();
-				if (!file_exists($api_conf_file) || !is_file($api_conf_file) || !is_readable($api_conf_file)) {
-					$this->api_last_error = "Unable to find/read the YAML api_conf_file : $api_conf_file";
-					$this->api_created = false;
-				}
-				else {
-					$values = $yaml->parse(file_get_contents($api_conf_file));
-					$this->api_conf = json_decode(json_encode($values));
-					$this->client_id = $this->api_conf->App->client_id;
-					$this->client_secret = $this->api_conf->App->client_secret;
-					$this->auth_url = $this->api_conf->App->auth_url;
-					$this->access_token_url = $this->api_conf->App->access_token_url;
-					$this->redirect_uri = $this->api_conf->App->redirect_uri;
-					$this->api_base_url = $this->api_conf->App->api_base_url;
-					$this->api_created = true;
-				}
-			}
-			catch (InvalidArgumentException $e) {
-				$this->api_last_error = "Unable to parse the YAML string: ".$e->getMessage();
-				$this->api_created = false;
-			}
-		}
+	public function __construct() {
+		$this->api_created = true;
 	}
 
 	public function connectRunkeeperButtonUrl () {
