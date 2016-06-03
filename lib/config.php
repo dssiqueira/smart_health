@@ -1,9 +1,27 @@
 <?php
 class mysqlConnection { 
-    public $hots        = 'mysql.comovejoomundo.com.br'; 
+    public $host        = 'mysql.comovejoomundo.com.br'; 
     public $database    = 'comovejoomundo07';
     public $user        = 'comovejoomundo07';
-    public $pass        = 'S1t3Adm1n99';   
+    public $pass        = 'S1t3Adm1n99';  
+    
+     
+    public function mysqlQuery($sql){
+        $my = new mysqlConnection;
+        
+        // Create connection
+        $conn = new mysqli($my->host, $my->user, $my->pass, $my->database);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        
+        $result = $conn->query($sql);
+        $conn->close();
+        
+        return $result;
+    }
 } 
 
 class apiStrava {
