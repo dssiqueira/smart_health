@@ -9,7 +9,7 @@ class user {
     public function getUserByEmail($email){
         $search = new mysqlConnection;
         $user = new user;
-        $query  = 'SELECT uid, email, name, path_image FROM USER WHERE email = "' . $email . '"';
+        $query  = 'SELECT uid, email, name, path_image FROM user WHERE email = "' . $email . '"';
         $result = $search->mysqlQuery($query);
         
         if ($result->num_rows > 0) {
@@ -27,7 +27,7 @@ class user {
     
     public function insertUser($email, $name, $path_image){
         $insert = new mysqlConnection;
-        $query  = 'INSERT INTO USER(email, name, path_image) VALUES ("' . $email . '","' . $name . '","' . $path_image .'")';
+        $query  = 'INSERT INTO user(email, name, path_image) VALUES ("' . $email . '","' . $name . '","' . $path_image .'")';
         $insert->mysqlQuery($query);
     }
 }
