@@ -1,15 +1,29 @@
 <?php
-	include('lib/smartCanvasAPI.php');
-  $post = new smartCanvasAPI;
+	//include('lib/smartCanvasAPI.php');
+	include('lib/user.php');
 	
-	$title = 'Teste LIB PHP';
-	$content = 'Testando biblioteca PHP';
-	$shareWith = '["organization", "5712425286369280"]';
-	$cover = 'http://blog.zend.com/wp-content/uploads/2013/09/elephant-queue.jpg';
+  //$post = new smartCanvasAPI;
+	$user = new user;
+	$email = $_POST['email'];
+	$name = $_POST['name'];
+	$path_image = $_POST['image'];
+	
+	$user = $user->getUserByEmail($email);
+	
+	if(empty($user->uid)){
+		echo "vai inserir";
+		$user->insertUser($email, $name, $path_image);
+	} else {
+		
+	}
+	
+	//$title = 'Teste LIB PHP';
+	//$content = 'Testando biblioteca PHP';
+	//$shareWith = '["organization", "5712425286369280"]';
+	//$cover = 'http://blog.zend.com/wp-content/uploads/2013/09/elephant-queue.jpg';
 	
 	//post->postCard($title, $content, $shareWith, $cover);
 	
-	//var_dump($_POST);
 	$isConnected = FALSE;
 	if ($_GET['code']) {
 		$isConnected = TRUE;
@@ -47,7 +61,7 @@
                     <a class="mdl-navigation__link" href="">About</a>
                     <a class="mdl-navigation__link" href="">Next Step</a>
                     <a class="mdl-navigation__link" href="">Sing Out</a>
-                    <img src="https://lh4.googleusercontent.com/-7VQwiIQW9tc/AAAAAAAAAAI/AAAAAAAAABE/05PlkhseRBk/s96-c/photo.jpg" style="width: 50px;border-radius: 30px;"></img>
+                    <img src="<?php print $user->path_image;?>" style="width: 50px;border-radius: 30px;"></img>
                 </nav>
                 </div>
             </header>
@@ -87,7 +101,7 @@
                                     <h2 class="mdl-card__title-text">Runkeeper</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-                                    <button class="mdl-button mdl-js-button mdl-button--raised" disabled>Developing</button>
+                                    <a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveIntegration.php" class="mdl-button mdl-js-button mdl-button--accent">Developing</a>
                                 </div>
                             </div> 
                         </div>
