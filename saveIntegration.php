@@ -2,6 +2,8 @@
 error_reporting(E_ERROR);
 
 require('lib/runkeeperAPI.class.php');
+require('lib/config.php');
+
 
 /* API initialization */
 $rkAPI = new runkeeperAPI();
@@ -16,26 +18,11 @@ if ($_GET['code']) {
 		exit();
 	}
 	else {
-		
-		$servername = "localhost";
-		$username = "root";
-		$password = "root";
-		$dbname = "runners";
-		
-		// Create connection
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		// Check connection
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
-		}
-		
-		$sql = 'INSERT INTO INTEGRATION (appid,uid,token) VALUE (1,1, "'.$rkAPI->access_token.'")';
-		$result = $conn->query($sql);
-		
-		$conn->close();
-		
-		echo 'ok';
-		
+		$insert = new mysqlConnection;
+        $query  = 'INSERT INTO INTEGRATION (appid,uid,token) VALUE (1,5, "' . $rkAPI->access_token . '")';
+		var_dump($query);
+        $insert->mysqlQuery($query);
+		echo "ok o token é >>>>> " . $rkAPI->access_token;
 	}
 }
 ?>
