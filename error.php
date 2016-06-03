@@ -1,6 +1,5 @@
 <html>
   <head>
-    <?php include 'inc/header.inc' ;?>
   </head>
   <body class="homepage">
 
