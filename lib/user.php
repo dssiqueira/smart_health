@@ -3,7 +3,7 @@ include('config.php');
 class user {
     public $uid;
     public $email;
-    public $nome;
+    public $name;
     public $path_image;
     
     public function getUserByEmail($email){
@@ -17,7 +17,7 @@ class user {
             while($row = $result->fetch_assoc()) {
                 $user->uid          = $row["uid"];
                 $user->email        = $row["email"];
-                $user->nome         = $row["name"];
+                $user->name         = $row["name"];
                 $user->path_image   = $row["path_image"];
             }
         } 
