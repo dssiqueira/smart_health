@@ -24,21 +24,22 @@
         form.submit();
       }
     </script>
+    <style>
+      html { 
+        background: url(images/error.gif) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+    </style>
   </head>
   <body class="homepage">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-	<!-- Header -->
-		<div id="header">
-			<div class="container">
-
-				<!-- Logo -->
-				<div id="logo">
-          <img src="images/CIT.png" width="30%"></img>
-					<h1><a href="#">Runners</a></h1>
-				</div>
-        
-			</div>
-		</div>
+    <div id="logo">
+      <img src="images/CIT.png" width="30%"></img>
+      <h1><a href="#">Health</a></h1>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
     <script>
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
