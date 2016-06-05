@@ -43,6 +43,11 @@
         background:
             url('images/dog.png') bottom right 15% no-repeat #46B6AC;
         }
+        .counter {
+            position: absolute;
+            right: 20px;
+            padding-top: 10px;
+        }
         </style>
     </head>
     <body>
@@ -51,7 +56,8 @@
             <header class="mdl-layout__header">
                 <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title">CI&T Runners</span>
+                <img src="images/CIT.png" width="5%"></img>
+                <span class="mdl-layout-title">Health</span>
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
@@ -82,7 +88,7 @@
                         </div>
                     </div>
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--6-col">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="demo-card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand" style="background: url('images/strava.png');"></div>
                                 <div class="mdl-card__supporting-text">
@@ -93,14 +99,25 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="mdl-cell mdl-cell--6-col">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="demo-card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand" style="background: url('images/runkeeper.png');"></div>
                                 <div class="mdl-card__supporting-text">
                                     <h2 class="mdl-card__title-text">Runkeeper</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-																		<a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveIntegration.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
+								    <a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveIntegration.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col">
+                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
+                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/nikerunning.png');"></div>
+                                <div class="mdl-card__supporting-text">
+                                    <h2 class="mdl-card__title-text">Nike + Running</h2>
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+								    <button class="mdl-button mdl-js-button mdl-button--raised" disabled>Developing</button>
                                 </div>
                             </div> 
                         </div>
@@ -120,18 +137,7 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
-                                    <span>(0)</span>
-                                </div>
-                            </div> 
-                        </div>
-                        <div class="mdl-cell mdl-cell--3-col">
-                            <div class="demo-card-square mdl-card mdl-shadow--2dp">
-                                <div class="mdl-card__title mdl-card--expand" style="background: url('images/nikerunning.png');"></div>
-                                <div class="mdl-card__supporting-text">
-                                    <h2 class="mdl-card__title-text">Nike + Running</h2>
-                                </div>
-                                <div class="mdl-card__actions mdl-card--border">
-                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                    <span class="counter">(0)</span>
                                 </div>
                             </div> 
                         </div>
@@ -143,6 +149,7 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                    <span class="counter">(0)</span>
                                 </div>
                             </div> 
                         </div>
@@ -154,6 +161,7 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                    <span class="counter">(0)</span>
                                 </div>
                             </div> 
                         </div>
@@ -165,6 +173,7 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                    <span class="counter">(0)</span>
                                 </div>
                             </div> 
                         </div>
@@ -176,6 +185,7 @@
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
                                     <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                    <span class="counter">(0)</span>
                                 </div>
                             </div> 
                         </div>
