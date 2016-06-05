@@ -24,6 +24,26 @@ class user {
         
         return $user;
     } 
+
+    public function getUserById($uid){
+    	$search = new mysqlConnection;
+    	$user = new user;
+    	$query  = 'SELECT uid, email, name, path_image FROM user WHERE uid = "' . $uid . '"';
+    	$result = $search->mysqlQuery($query);
+    
+    	if ($result->num_rows > 0) {
+    		// output data of each row
+    		while($row = $result->fetch_assoc()) {
+    			$user->uid          = $row["uid"];
+    			$user->email        = $row["email"];
+    			$user->name         = $row["name"];
+    			$user->path_image   = $row["path_image"];
+    		}
+    	}
+    
+    	return $user;
+    }
+    
     
     public function insertUser($email, $name, $path_image){
         $insert = new mysqlConnection;
@@ -31,4 +51,3 @@ class user {
         $insert->mysqlQuery($query);
     }
 }
-?>
