@@ -1,35 +1,33 @@
 <?php
-	//include('lib/smartCanvasAPI.php');
+	session_start();
+
+//include('lib/smartCanvasAPI.php');
 	include('lib/user.php');
 	
   //$post = new smartCanvasAPI;
-	$user = new user;
-	$email = $_POST['email'];
+	
+    $email = $_POST['email'];
 	$name = $_POST['name'];
 	$path_image = $_POST['image'];
-	
+		
+	$user = new user();
 	$user = $user->getUserByEmail($email);
 	
 	if(empty($user->uid) && !empty($email)){
 		$user->insertUser($email, $name, $path_image);
-	} else {
-		
+		$user = $user->getUserByEmail($email);
 	}
-	
-	//$title = 'Teste LIB PHP';
-	//$content = 'Testando biblioteca PHP';
-	//$shareWith = '["organization", "5712425286369280"]';
-	//$cover = 'http://blog.zend.com/wp-content/uploads/2013/09/elephant-queue.jpg';
-	
-	//post->postCard($title, $content, $shareWith, $cover);
+			
+	$_SESSION['USER_UID'] = $user->uid;
+	$_SESSION['USER_EMAIL'] = $user->email;
+	$_SESSION['USER_NAME'] = $user->name;
+	$_SESSION['USER_PATH_IMAGE'] = $user->path_image;
 	
 	$isConnected = FALSE;
 	if ($_GET['code']) {
 		$isConnected = TRUE;
 	}
 
-  $name   = $_POST['name'];
-  $image  = $_POST['image'];
 ?>
 <html>
     <head>
