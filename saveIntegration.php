@@ -1,6 +1,7 @@
 <?php
 require('lib/runkeeperAPI.class.php');
 require('lib/integration.php');
+require('lib/activities.php');
 
 require('lib/config.php');
 
@@ -26,7 +27,23 @@ if ($_GET['code']) {
 			//It's saving ONLY RunKeeper
 			$integration->insertIntegration(1, $uid, $rkAPI->access_token);
 		}
-	}
+		
+		//Add last Activity just for test
+		$rkActivities = $rkAPI->getLastActivity();
+		
+		$activities = new activities();
+		
+		$activities = $activities->getLastActivityByIntegrationId($integration->iid);
+		
+		if (empty($activities->aid)) {
+			$activities->insertActivity(
+					$integration->iid,
+					strtotime($rkActivities['items'][0]['start_time']),
+					$rkActivities['items'][0]['type'],
+					$rkActivities['items'][0]['total_distance'],
+					$rkActivities['items'][0]['total_calories']);
+		}		
+	}		
 }
 
 header("location:app.php");
