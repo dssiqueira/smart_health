@@ -32,7 +32,11 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.light_blue-pink.min.css" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
         <style>
+        html {
+            
+        }
         .demo-card-square.mdl-card {
         width: 320px;
         height: 320px;
@@ -54,16 +58,16 @@
             <header class="mdl-layout__header">
                 <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <img src="images/CIT.png" width="5%"></img>
-                <span class="mdl-layout-title">Health</span>
+                <img src="images/CIT.png" width="10%"></img>
+                <span class="mdl-layout-title" style="color: rgb(255, 255, 255);">Health</span>
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="">Home</a>
-                    <a class="mdl-navigation__link" href="">About</a>
-                    <a class="mdl-navigation__link" href="">Next Step</a>
-                    <a class="mdl-navigation__link" href="">Sing Out</a>
+                    <a class="mdl-navigation__link" href="" style="color: rgb(255, 255, 255);">Home</a>
+                    <a class="mdl-navigation__link" href="" style="color: rgb(255, 255, 255);">About</a>
+                    <a class="mdl-navigation__link" href="" style="color: rgb(255, 255, 255);">Next Step</a>
+                    <a class="mdl-navigation__link" href="" style="color: rgb(255, 255, 255);">Sing Out</a>
                     <img src="<?php print $user->path_image;?>" style="width: 50px;border-radius: 30px;"></img>
                 </nav>
                 </div>
@@ -134,7 +138,7 @@
                                     <h2 class="mdl-card__title-text">Google Fit</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">+</i></button>
+                                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
                                     <span class="counter">(0)</span>
                                 </div>
                             </div> 
@@ -187,7 +191,12 @@
                                 </div>
                             </div> 
                         </div>
-                    </div>     
+                    </div>  
+                    <div class="mdl-grid" style="background-color: rgb(224, 224, 224); text-align: center;">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h6><?php print date('Y');?></h6>
+                        </div>
+                    </div>   
                 </div>
             </main>
         </div>
