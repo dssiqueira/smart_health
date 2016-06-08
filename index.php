@@ -48,7 +48,7 @@
       <img src="images/CIT.png" width="30%"></img>
       <h1>Health</h1>
     </div>
-    <div id="g-signin2" style="position: absolute; right: 50%; margin-right: -120px;"></div>
+    <div id="g-signin2" class="g-signin2" data-onsuccess="onSignIn" style="position: absolute; right: 50%; margin-right: -60px;"></div>
     <script>
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
@@ -64,7 +64,9 @@
           'scope': 'profile email',
           'width': 240,
           'height': 50,
-          'longtitle': true
+          'longtitle': true,
+          'onsuccess': onSuccess,
+          'onfailure': onFailure
         });
       }
     </script>
