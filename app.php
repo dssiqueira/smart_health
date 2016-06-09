@@ -64,6 +64,11 @@
 		    	window.location = "/index.php";;
 		    });
 		  }
+	      function onLoad() {
+	        gapi.load('auth2', function() {
+	          gapi.auth2.init();
+	        });
+	      }
 		</script>
     </head>
     <body>
@@ -216,5 +221,6 @@
                 </div>
             </main>
         </div>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
     </body>
 </html>

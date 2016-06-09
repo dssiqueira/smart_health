@@ -33,7 +33,6 @@
         'width': 240,
         'height': 50,
         'longtitle': true,
-        'theme': 'dark',
         'onsuccess': onSignIn
       });
     }
