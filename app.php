@@ -116,11 +116,12 @@
 		  
             <main class="mdl-layout__content">
                 <div class="page-content">
+                    
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h5>one step at a time</h5>
+                            <h4>one step at a time...</h4>
                             <h2>First, Connect your App</h2>
-                            <h6>Before start run or ride, let us know where we can track your stats..</h6>
+                            <h6>Before start running, let us know where to track your stats..</h6>
                         </div>
                     </div>
                     <div class="mdl-grid">
@@ -158,20 +159,22 @@
                             </div> 
                         </div>
                     </div>
+                    
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h2>Ok, now you can go outside</h2>
+                            <h2>Second step, go outside and run!</h2>
                             <h6>Go Forrest, go!</h6>
                         </div>
                     </div>
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h2>Isn't that your favorite App?</h2>
-                            <h6>Help us to identify where focus our effort by voting on your favorite App...</h6>
+                            <h2>Ow wait! Isn't it your favorite App?</h2>
+                            <h6>So help us to identify where focus our effort by voting on your favorite App below...</h6>
                         </div>
                     </div>
+                    
                     <div class="mdl-grid">
-                        <div class="mdl-cell mdl-cell--3-col">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
                                 <div class="mdl-card__supporting-text">
@@ -183,7 +186,7 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="mdl-cell mdl-cell--3-col">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand" style="background: url('images/adidas.png');"></div>
                                 <div class="mdl-card__supporting-text">
@@ -195,7 +198,7 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="mdl-cell mdl-cell--3-col">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand" style="background: url('images/mapmyrun.png');"></div>
                                 <div class="mdl-card__supporting-text">
@@ -207,7 +210,9 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="mdl-cell mdl-cell--3-col">
+                      </div>
+                      <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand" style="background: url('images/endomondo.png');"></div>
                                 <div class="mdl-card__supporting-text">
@@ -219,7 +224,7 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="mdl-cell mdl-cell--3-col">
+                        <div class="mdl-cell mdl-cell--4-col">
                             <div class="card-square mdl-card mdl-shadow--2dp">
                                 <div class="mdl-card__title mdl-card--expand" style="background: url('images/runtastic.png');"></div>
                                 <div class="mdl-card__supporting-text">
@@ -234,7 +239,7 @@
                     </div>  
                     <div class="mdl-grid" style="background-color: rgb(224, 224, 224); text-align: center;">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h6><?php print date('Y');?></h6>
+                            <h6>CI&T Health - <?php print date('Y');?></h6>
                         </div>
                     </div>   
                 </div>
