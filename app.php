@@ -168,8 +168,8 @@
                     </div>
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h2>Ow wait! Isn't it your favorite App?</h2>
-                            <h6>So help us to identify where focus our effort by voting on your favorite App below...</h6>
+                            <h2>Oh wait! Isn't it your favorite App?</h2>
+                            <h6>So help us to identify where to focus our effort by voting on your favorite App below...</h6>
                         </div>
                     </div>
                     
