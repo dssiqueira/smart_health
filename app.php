@@ -6,37 +6,52 @@
 	
   	//$post = new smartCanvasAPI;
 	
-    $email = $_POST['email'];
-	$name = $_POST['name'];
-	$path_image = $_POST['image'];
-		
+	$cookie_name = "USER_UID";
 	$user = new user();
-	$user = $user->getUserByEmail($email);
+	
+	$email = null;
+	
+	//Check logged user by POST, SESSION or COOKIE
+	if (isset($_POST['email'])){
+		$email = $_POST['email'];
+    } else if (isset($_SESSION['USER_UID'])){
+    	$user = $user->getUserById($_SESSION['USER_UID']);
+    } else if (isset($_COOKIE[$cookie_name])) {
+    	$user = $user->getUserById($_COOKIE[$cookie_name]);
+    } else {
+    	header("location:index.php");
+    }
+    
+	if (empty($user->email) && !empty($email)){
+    	$user = $user->getUserByEmail($email);
+	}
 	
 	if(empty($user->uid) && !empty($email)){
+		$name = $_POST['name'];
+		$path_image = $_POST['image'];
 		$user->insertUser($email, $name, $path_image);
 		$user = $user->getUserByEmail($email);
 	}
-			
-	$_SESSION['USER_UID'] = $user->uid;
-	$_SESSION['USER_EMAIL'] = $user->email;
-	$_SESSION['USER_NAME'] = $user->name;
-	$_SESSION['USER_PATH_IMAGE'] = $user->path_image;
 	
-	$isConnected = FALSE;
-	if ($_GET['code']) {
-		$isConnected = TRUE;
-	}
-
+	//Save userId in Session
+	$_SESSION['USER_UID'] = $user->uid;
+	
+	//Save userId in Cookie
+	$_COOKIE[$cookie_name] = $user->uid;
 ?>
 <html>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <head>
 	    <script src="https://apis.google.com/js/platform.js" async defer></script>
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 	    <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
-	    <meta name="google-signin-client_id" content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">
         <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.light_blue-pink.min.css" />
-        
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	    <meta name="google-signin-client_id" content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <style>
@@ -83,11 +98,11 @@
 		      <div class="mdl-layout-spacer"></div>
 		      <!-- Navigation. We hide it in small screens. -->
 		      <nav class="mdl-navigation mdl-layout--large-screen-only">
-		        <a class="mdl-navigation__link" href="/home.php">Home</a>
+		        <a class="mdl-navigation__link" href="/app.php">About</a>
 		        <a class="mdl-navigation__link" href="/about.php">About</a>
 		        <a class="mdl-navigation__link" href="/next-step.php">Next Steps</a>
 		        <a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
-		        <a class="mdl-navigation__link" href="">
+		        <a class="mdl-navigation__link" href="/app.php">
 		        	<img src="<?php print $user->path_image;?>" style="width: 50px;border-radius: 30px;"></img>
 		        </a>
 		      </nav>
@@ -96,18 +111,20 @@
 		  <div class="mdl-layout__drawer">
 		    <span class="mdl-layout-title">Health</span>
 		    <nav class="mdl-navigation">
-		      <a class="mdl-navigation__link" href="/home.php">Home</a>
+		      <a class="mdl-navigation__link" href="/app.php">Home</a>
 		      <a class="mdl-navigation__link" href="/about.php">About</a>
 		      <a class="mdl-navigation__link" href="/next-step.php">Next Step</a>
 		      <a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
 		    </nav>
 		  </div>
+		  
             <main class="mdl-layout__content">
                 <div class="page-content">
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h2>Connect Your App</h2>
-                            <h6>Every day we get the information so your application to add to our database automatically. So run and enjoy!</h6>
+                            <h5>one step at a time</h5>
+                            <h2>First, Connect your App</h2>
+                            <h6>Before start run or ride, let us know where we can track your stats..</h6>
                         </div>
                     </div>
                     <div class="mdl-grid">
@@ -147,8 +164,14 @@
                     </div>
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h2>Next Integration</h2>
-                            <h6>Choose application integration. Your opinion is important.</h6>
+                            <h2>Ok, now you can go outside</h2>
+                            <h6>Go Forrest, go!</h6>
+                        </div>
+                    </div>
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <h2>Isn't that your favorite App?</h2>
+                            <h6>Help us to identify where focus our effort by voting on your favorite App...</h6>
                         </div>
                     </div>
                     <div class="mdl-grid">
