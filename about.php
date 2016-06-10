@@ -45,14 +45,7 @@
 	    <meta name="google-signin-client_id" content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <style>
-        html {
-            
-        }
-        .mdl-layout__header {
-        	color: #fff;
-        }
-        
+        <style>        
         .card-square.mdl-card {
         width: 320px;
         height: 320px;
@@ -85,7 +78,7 @@
         <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-		  <header class="mdl-layout__header">
+		  <header class="mdl-layout__header" style="color: #fff">
 		    <div class="mdl-layout__header-row">
 		      <!-- Title -->
 		      <span class="mdl-layout-title"><img src="/images/CIT.png" width="80px"></img>Health</span>

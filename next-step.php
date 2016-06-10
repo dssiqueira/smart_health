@@ -46,9 +46,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <style>
-        html {
-            
-        }
         .card-square.mdl-card {
         width: 320px;
         height: 320px;

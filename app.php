@@ -55,11 +55,7 @@
 	    <meta name="google-signin-client_id" content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <style>
-        .mdl-layout--fixed-header {
-        	color: #fff;
-        }
-        
+        <style>        
         .card-square.mdl-card {
         width: 320px;
         height: 320px;
