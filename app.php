@@ -98,14 +98,12 @@
 		      <div class="mdl-layout-spacer"></div>
 		      <!-- Navigation. We hide it in small screens. -->
 		      <nav class="mdl-navigation mdl-layout--large-screen-only">
-		        <a class="mdl-navigation__link" href="/app.php">About</a>
+		        <a class="mdl-navigation__link" href="/app.php">Home</a>
 		        <a class="mdl-navigation__link" href="/about.php">About</a>
 		        <a class="mdl-navigation__link" href="/next-step.php">Next Steps</a>
 		        <a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
-		        <a class="mdl-navigation__link" href="/app.php">
-		        	<img src="<?php print $user->path_image;?>" style="width: 50px;border-radius: 30px;"></img>
-		        </a>
 		      </nav>
+		      <img src="<?php print $user->path_image;?>" style="width: 50px;border-radius: 30px;"></img>
 		    </div>
 		  </header>
 		  <div class="mdl-layout__drawer">
