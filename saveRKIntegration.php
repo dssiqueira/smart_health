@@ -1,5 +1,5 @@
 <?php
-require('lib/runkeeperAPI.class.php');
+require('lib/runkeeperAPI.php');
 require('lib/integration.php');
 require('lib/activities.php');
 

@@ -19,7 +19,7 @@
     } else if (isset($_COOKIE[$cookie_name])) {
     	$user = $user->getUserById($_COOKIE[$cookie_name]);
     } else {
-    	header("location:index.php");
+  //  	header("location:index.php");
     }
     
 	if (empty($user->email) && !empty($email)){
@@ -49,6 +49,10 @@
         html {
             
         }
+        .mdl-layout__header {
+        	color: #fff;
+        }
+        
         .card-square.mdl-card {
         width: 320px;
         height: 320px;
@@ -81,7 +85,7 @@
         <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-		  <header class="mdl-layout__header" style="color: #fff">
+		  <header class="mdl-layout__header">
 		    <div class="mdl-layout__header-row">
 		      <!-- Title -->
 		      <span class="mdl-layout-title"><img src="/images/CIT.png" width="80px"></img>Health</span>
@@ -106,6 +110,9 @@
 		      <a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
 		    </nav>
 		  </div>
+
+            <main class="mdl-layout__content">
+                <div class="page-content">
 
 				
 				

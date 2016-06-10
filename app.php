@@ -3,6 +3,7 @@
 
 	//include('lib/smartCanvasAPI.php');
 	include('lib/user.php');
+	require_once('lib/integration.php');
 	
   	//$post = new smartCanvasAPI;
 	
@@ -55,9 +56,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <style>
-        html {
-            
+        .mdl-layout--fixed-header {
+        	color: #fff;
         }
+        
         .card-square.mdl-card {
         width: 320px;
         height: 320px;
@@ -133,7 +135,7 @@
                                     <h2 class="mdl-card__title-text">Strava</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-                                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</button>
+								    <a href="https://www.strava.com/oauth/authorize?client_id=11678&response_type=code&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveStravaIntegration.php&scope=write&state=mystate&approval_prompt=force" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
                                 </div>
                             </div> 
                         </div>
@@ -144,7 +146,7 @@
                                     <h2 class="mdl-card__title-text">Runkeeper</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-								    <a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveIntegration.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
+								    <a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveRKIntegration.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
                                 </div>
                             </div> 
                         </div>

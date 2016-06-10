@@ -1,33 +1,11 @@
 <?php
-/*
-- runkeeperAPI
-- Version : 0.3.1
-- Date : 2012-04-13
-- Author : Pierre RASO - eX Nihili <pierre@exnihili.com>
-- Summary : PHP wrapper for Runkeeper Health Graph API
-- Requires :
-  + sfYaml (https://github.com/fabpot/yaml)
-  + PHP cURL support (http://www.php.net/manual/en/book.curl.php)
-  + PHP json support (http://fr2.php.net/manual/en/book.json.php)
-- Usage : see /usage/rk-api.sample.php
-- ChangeLog :
-  + v0.3.1 (2012-04-13) :
-    * fixed bug (missing "}")
-  + v0.3 (2012-04-02) :
-    * fixed bug with cURL on some server which had "error :SSL certificate problem, verify that the CA cert is OK"
-  + v0.2 (2012-03-19) :
-    * added support for "Delete" requests in "doRunkeeperRequest" method
-    * added Interfaces in API config
-  + v.01 (2012-03-03) :
-    * Initial version
-*/
 
 class runkeeperAPI {
 	private $client_id = '8ca1c685ee4a4ad88ffcddfe24f3d0cf';
 	private $client_secret = 'b82055792ae344aea00f5dc3c176727a';
 	private $auth_url = 'https://runkeeper.com/apps/authorize';
 	private $access_token_url = 'https://runkeeper.com/apps/token';
-	private $redirect_uri = 'https://ssl-310157.uni5.net/saveIntegration.php';
+	private $redirect_uri = 'https://ssl-310157.uni5.net/saveRKIntegration.php';
 	private $api_base_url = 'https://api.runkeeper.com';
 	private $api_conf_file = '';
 	public $api_conf;
