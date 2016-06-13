@@ -5,7 +5,7 @@ class runkeeperAPI {
 	private $client_secret = 'b82055792ae344aea00f5dc3c176727a';
 	private $auth_url = 'https://runkeeper.com/apps/authorize';
 	private $access_token_url = 'https://runkeeper.com/apps/token';
-	private $redirect_uri = 'https://ssl-310157.uni5.net/saveRKIntegration.php';
+	private $redirect_uri = '/saveRKIntegration.php';
 	private $api_base_url = 'https://api.runkeeper.com';
 	private $api_conf_file = '';
 	public $api_conf;
@@ -20,8 +20,18 @@ class runkeeperAPI {
 		$this->api_created = true;
 	}
 
+	private function server_url(){
+	    if(isset($_SERVER['HTTPS'])){
+		$protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+	    }
+	    else{
+		$protocol = 'http';
+	    }
+	    return $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	}
+
 	public function connectRunkeeperButtonUrl () {
-		$url = $this->auth_url.'?response_type=code&client_id='.$this->client_id.'&redirect_uri='.urlencode($this->redirect_uri);
+		$url = $this->auth_url.'?response_type=code&client_id='.$this->client_id.'&redirect_uri='.urlencode($this->server_url() . $this->redirect_uri);
 		return($url);
 	}
 
@@ -31,7 +41,7 @@ class runkeeperAPI {
 			'code'		=>	$authorization_code,
 			'client_id'	=>	$this->client_id,
 			'client_secret'	=>	$this->client_secret,
-			'redirect_uri'	=>	($redirect_uri == '' ? $this->redirect_uri : $redirecturi)
+			'redirect_uri'	=>	($redirect_uri == '' ? ($this->server_url() . $this->redirect_uri) : $redirecturi)
 		));
 		$options = array(
 			CURLOPT_URL		=>	$this->access_token_url,
@@ -59,7 +69,7 @@ class runkeeperAPI {
 			return(true);
 		}
 		elseif ($decoderesponse->error == 'invalid_grant') {
-			header('Location: '.$this->auth_url.'?response_type=code&client_id='.$this->client_id.'&redirect_uri='.urlencode($this->redirect_uri), true, 302);
+			header('Location: '.$this->auth_url.'?response_type=code&client_id='.$this->client_id.'&redirect_uri='.urlencode($this->server_url() . $this->redirect_uri), true, 302);
 			exit();
 		}
 		else {

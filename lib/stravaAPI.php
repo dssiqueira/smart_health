@@ -6,7 +6,7 @@ class stravaAPI {
 	private $client_code = 'd1dd6ed227892da878ce5f2f211b5ab2870ce551';
 	private $auth_url = 'https://www.strava.com/oauth/authorize';
 	private $access_token_url = 'https://www.strava.com/oauth/token';
-	private $redirect_uri = 'https://ssl-310157.uni5.net/saveStravaIntegration.php';
+	private $redirect_uri = '/saveStravaIntegration.php';
 	private $api_base_url = 'https://www.strava.com/api/v3/athlete/activities';
 	private $api_conf_file = '';
 	public $api_conf;
@@ -21,9 +21,19 @@ class stravaAPI {
 		$this->api_created = true;
 	}
 
-	public function connectRunkeeperButtonUrl () {
+	private function server_url(){
+	    if(isset($_SERVER['HTTPS'])){
+		$protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+	    }
+	    else{
+		$protocol = 'http';
+	    }
+	    return $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	}
+
+	public function connectStravaButtonUrl () {
 		$url = $this->auth_url.'?response_type=code&client_id='.$this->client_id.
-				'&redirect_uri='.urlencode($this->redirect_uri).'&scope=write&state=mystate&approval_prompt=force';
+				'&redirect_uri='.urlencode($this->server_url() . $this->redirect_uri).'&scope=write&state=mystate&approval_prompt=force';
 		return($url);
 	}
 
@@ -33,7 +43,7 @@ class stravaAPI {
 			'code'		=>	$authorization_code,
 			'client_id'	=>	$this->client_id,
 			'client_secret'	=>	$this->client_secret,
-			'redirect_uri'	=>	($redirect_uri == '' ? $this->redirect_uri : $redirecturi)
+			'redirect_uri'	=>	($redirect_uri == '' ? ($this->server_url() . $this->redirect_uri) : $redirecturi)
 		));
 		$options = array(
 			CURLOPT_URL		=>	$this->access_token_url,
@@ -61,7 +71,7 @@ class stravaAPI {
 			return(true);
 		}
 		elseif ($decoderesponse->error == 'invalid_grant') {
-			header('Location: '.$this->auth_url.'?response_type=code&client_id='.$this->client_id.'&redirect_uri='.urlencode($this->redirect_uri), true, 302);
+			header('Location: '.$this->auth_url.'?response_type=code&client_id='.$this->client_id.'&redirect_uri='.urlencode($this->server_url() . $this->redirect_uri), true, 302);
 			exit();
 		}
 		else {
