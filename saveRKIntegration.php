@@ -1,9 +1,10 @@
 <?php
-require('lib/runkeeperAPI.php');
-require('lib/integration.php');
-require('lib/activities.php');
 
-require('lib/config.php');
+include('lib/runkeeperAPI.php');
+include('lib/integration.php');
+include('lib/activities.php');
+
+//include('lib/config.php');
 
 /* API initialization */
 $rkAPI = new runkeeperAPI();
