@@ -1,17 +1,26 @@
 <?php
 
-include('lib/runkeeperAPI.php');
-include('lib/integration.php');
-include('lib/activities.php');
+session_start();
 
-//include('lib/config.php');
+if (!isset($_POST['appid']) || !isset($_SESSION['USER_UID'])){
+	header('location:/error.php');
+}
+
+
+$uid = $_SESSION['USER_UID'];
+$appid = 1; //RunKeeper
+
+
+require_once('lib/config.php');
+
+require_once('lib/runkeeperAPI.php');
+require_once('lib/integration.php');
+require_once('lib/activities.php');
 
 /* API initialization */
 $rkAPI = new runkeeperAPI();
 
 $integration = new integration();
-
-$cookie_name = "USER_UID";
 
 /* After connecting to Runkeeper and allowing your app, user is redirected to redirect_uri param (as specified in YAML config file) with $_GET parameter "code" */
 if ($_GET['code']) {
@@ -22,20 +31,22 @@ if ($_GET['code']) {
 		exit();
 	}
 	else {
-		$uid = $_COOKIE[$cookie_name];
-		$integration = $integration->getIntegrationByUserIdAndAppId($uid, 1);
+		
+		$integration = $integration->getIntegrationByUserIdAndAppId($uid, $appid);
+				
 		if (empty($integration->iid)){
 			//It's saving ONLY RunKeeper
 			$integration->insertIntegration(1, $uid, $rkAPI->access_token);
+		} else if ($integration->deleted == 1){
+			$integration->activate($integration->uid, $integration->appid);
 		}
-		
 		//Add last Activity just for test
 		$rkActivities = $rkAPI->getLastActivity();
 		
 		$activities = new activities();
 		
 		$activities = $activities->getLastActivityByIntegrationId($integration->iid);
-		
+				
 		if (empty($activities->aid)) {
 			$activities->insertActivity(
 					$integration->iid,
@@ -47,5 +58,5 @@ if ($_GET['code']) {
 	}		
 }
 
-header("location:app.php");
+header("location:/app.php?connect=RunKeeper");
 

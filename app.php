@@ -1,17 +1,16 @@
 <?php
 	session_start();
 
-	//include('lib/smartCanvasAPI.php');
-	include('lib/user.php');
-	require_once('lib/integration.php');
+	require_once('lib/config.php');
 	
-  	//$post = new smartCanvasAPI;
+	require_once('lib/user.php');
+	require_once('lib/integration.php');
 	
 	$cookie_name = "USER_UID";
 	$user = new user();
 	
 	$email = null;
-	
+		
 	//Check logged user by POST, SESSION or COOKIE
 	if (isset($_POST['email'])){
 		$email = $_POST['email'];
@@ -20,13 +19,12 @@
     } else if (isset($_COOKIE[$cookie_name])) {
     	$user = $user->getUserById($_COOKIE[$cookie_name]);
     } else {
-    	header("location:index.php");
+    	header("location:/index.php");
     }
-    
 	if (empty($user->email) && !empty($email)){
     	$user = $user->getUserByEmail($email);
 	}
-	
+		
 	if(empty($user->uid) && !empty($email)){
 		$name = $_POST['name'];
 		$path_image = $_POST['image'];
@@ -34,11 +32,31 @@
 		$user = $user->getUserByEmail($email);
 	}
 	
+	
+	// ALREADY CONNECTED AND LOGGED //
+	
+	
 	//Save userId in Session
 	$_SESSION['USER_UID'] = $user->uid;
 	
 	//Save userId in Cookie
 	$_COOKIE[$cookie_name] = $user->uid;
+	
+	//Check if we have to show dialog
+	$connected_app = false;
+	$dialog_app = null;
+	
+	if (isset($_GET['connect'])){
+		$connected_app = true;
+		$dialog_app = $_GET['connect'];
+	}
+	
+	$integration = new integration();
+	
+	
+	$applist = $integration->getAllAppsByUserId($user->uid);
+		
+	
 ?>
 <html>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -68,6 +86,11 @@
             position: absolute;
             right: 20px;
             padding-top: 10px;
+        }
+        
+        .mdl-dialog {
+        	width: 500px;
+        	text-align: center;
         }
         </style>
         <script>
@@ -113,15 +136,15 @@
 		      <a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
 		    </nav>
 		  </div>
-		  
+
             <main class="mdl-layout__content">
                 <div class="page-content">
                     
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
-                            <h4>one step at a time...</h4>
+                            <h6>one step at a time...</h6>
                             <h2>First, Connect your App</h2>
-                            <h6>Before start running, let us know where to track your stats..</h6>
+                            <h4>Before start running, let us know where to track your stats..</h4>
                         </div>
                     </div>
                     <div class="mdl-grid">
@@ -132,7 +155,16 @@
                                     <h2 class="mdl-card__title-text">Strava</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
-								    <a href="https://www.strava.com/oauth/authorize?client_id=11678&response_type=code&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveStravaIntegration.php&scope=write&state=mystate&approval_prompt=force" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
+
+							<?php if(isset($applist['2'])) : ?>
+								<form action="lib/disconnect.php" method="post">
+									<input type="hidden" name="appid" value="2">
+									<input type="submit" value="Disconnect" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">								
+								</form>
+							<?php else : ?>
+								<a href="https://www.strava.com/oauth/authorize?client_id=11678&response_type=code&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveStravaIntegration.php&scope=write&state=mystate&approval_prompt=force" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
+							<?php endif; ?>                                
+                                
                                 </div>
                             </div> 
                         </div>
@@ -143,7 +175,17 @@
                                     <h2 class="mdl-card__title-text">Runkeeper</h2>
                                 </div>
                                 <div class="mdl-card__actions mdl-card--border">
+
+							<?php if(isset($applist['1'])) : ?>
+								<form action="lib/disconnect.php" method="post">
+									<input type="hidden" name="appid" value="1">
+									<input type="submit" value="Disconnect" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">								
+								</form>
+							<?php else : ?>
 								    <a href="https://runkeeper.com/apps/authorize?response_type=code&client_id=8ca1c685ee4a4ad88ffcddfe24f3d0cf&redirect_uri=https%3A%2F%2Fssl-310157.uni5.net%2FsaveRKIntegration.php" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Connect</a>
+							<?php endif; ?>                                
+
+
                                 </div>
                             </div> 
                         </div>
@@ -163,13 +205,13 @@
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
                             <h2>Second step, go outside and run!</h2>
-                            <h6>Go Forrest, go!</h6>
+                            <h4>Go Forrest, go!</h4>
                         </div>
                     </div>
                     <div class="mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col">
                             <h2>Oh wait! Isn't it your favorite App?</h2>
-                            <h6>So help us to identify where to focus our effort by voting on your favorite App below...</h6>
+                            <h4>So help us to identify where to focus our effort by voting on your favorite App below...</h4>
                         </div>
                     </div>
                     
@@ -246,5 +288,10 @@
             </main>
         </div>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+<?php 
+ if ($connected_app == true) {
+ 	include('includes/dialog.php');
+ }
+?>    
     </body>
 </html>

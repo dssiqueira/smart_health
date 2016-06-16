@@ -22,12 +22,12 @@ class runkeeperAPI {
 
 	private function server_url(){
 	    if(isset($_SERVER['HTTPS'])){
-		$protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+			$protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
 	    }
 	    else{
-		$protocol = 'http';
+			$protocol = 'http';
 	    }
-	    return $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	    return $protocol . "://" . $_SERVER['HTTP_HOST'];
 	}
 
 	public function connectRunkeeperButtonUrl () {
@@ -36,6 +36,7 @@ class runkeeperAPI {
 	}
 
 	public function getRunkeeperToken ($authorization_code, $redirect_uri='') {
+				
 		$params = http_build_query(array(
 			'grant_type'	=>	'authorization_code',
 			'code'		=>	$authorization_code,
@@ -50,11 +51,13 @@ class runkeeperAPI {
 			CURLOPT_RETURNTRANSFER	=>	true
 		);
 		$curl = curl_init();
+		
 		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); /* Added to avoid "error :SSL certificate problem, verify that the CA cert is OK" */
 		curl_setopt_array($curl, $options);
 		$response     = curl_exec($curl);
 		curl_close($curl);
 		$decoderesponse = json_decode($response);
+						
 		if ($decoderesponse == null) {
 			$this->api_last_error = "getRunkeeperToken: bad response";
 			return(false);
