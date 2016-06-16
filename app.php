@@ -1,13 +1,10 @@
 <?php
 	session_start();
 
-	//include('lib/smartCanvasAPI.php');
 	require_once('lib/config.php');
 	
 	require_once('lib/user.php');
 	require_once('lib/integration.php');
-	
-  	//$post = new smartCanvasAPI;
 	
 	$cookie_name = "USER_UID";
 	$user = new user();
@@ -22,7 +19,7 @@
     } else if (isset($_COOKIE[$cookie_name])) {
     	$user = $user->getUserById($_COOKIE[$cookie_name]);
     } else {
-    	header("location:index.php");
+    	header("location:/index.php");
     }
 	if (empty($user->email) && !empty($email)){
     	$user = $user->getUserByEmail($email);
@@ -295,7 +292,6 @@
  if ($connected_app == true) {
  	include('includes/dialog.php');
  }
-?>
-    
+?>    
     </body>
 </html>

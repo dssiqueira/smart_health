@@ -1,5 +1,16 @@
 <?php
 
+session_start();
+
+if (!isset($_POST['appid']) || !isset($_SESSION['USER_UID'])){
+	header('location:/error.php');
+}
+
+
+$uid = $_SESSION['USER_UID'];
+$appid = 2; //Strava
+
+
 require_once('lib/config.php');
 
 require_once('lib/stravaAPI.php');
@@ -11,8 +22,6 @@ $stravaAPI = new stravaAPI();
 
 $integration = new integration();
 
-$cookie_name = "USER_UID";
-
 if ($_GET['code']) {
 	$auth_code = $_GET['code'];
 
@@ -21,8 +30,7 @@ if ($_GET['code']) {
 		exit();
 	}
 	else {
-		$uid = $_COOKIE[$cookie_name];
-		$integration = $integration->getIntegrationByUserIdAndAppId($uid, 2);
+		$integration = $integration->getIntegrationByUserIdAndAppId($uid, $appid);
 		if (empty($integration->iid)){
 			//It's saving ONLY Strava
 			$integration->insertIntegration(2, $uid, $stravaAPI->access_token);
