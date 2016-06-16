@@ -1,5 +1,4 @@
 <?php
-include('config.php');
 class user {
     public $uid;
     public $email;

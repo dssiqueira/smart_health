@@ -2,7 +2,9 @@
 	session_start();
 
 	//include('lib/smartCanvasAPI.php');
-	include('lib/user.php');
+	require_once('lib/config.php');
+	
+	require_once('lib/user.php');
 	
   	//$post = new smartCanvasAPI;
 	

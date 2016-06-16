@@ -1,9 +1,10 @@
 <?php
-require('lib/stravaAPI.php');
-require('lib/integration.php');
-require('lib/activities.php');
 
-require('lib/config.php');
+require_once('lib/config.php');
+
+require_once('lib/stravaAPI.php');
+require_once('lib/integration.php');
+require_once('lib/activities.php');
 
 /* API initialization */
 $stravaAPI = new stravaAPI();
@@ -25,6 +26,8 @@ if ($_GET['code']) {
 		if (empty($integration->iid)){
 			//It's saving ONLY Strava
 			$integration->insertIntegration(2, $uid, $stravaAPI->access_token);
+		} else if ($integration->deleted == 1){
+			$integration->activate($integration->uid, $integration->appid);
 		}
 		
 		//Add last Activity just for test
@@ -45,5 +48,5 @@ if ($_GET['code']) {
 	}		
 }
 
-header("location:app.php");
+header("location:/app.php?connect=Strava");
 

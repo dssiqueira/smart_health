@@ -14,7 +14,15 @@
       	<img src="images/CIT.png" width="30%"></img>
       	<h1>Health</h1>
       	<div style="position: absolute; right: 50%; margin-right: -120px;">
-  			<div id="my-signin2"></div>
+  			<?php  			
+  			if ($_SERVER['HTTP_HOST']  == 'localhost'){
+	    		echo '<form action="app.php" method="POST">';
+		    	echo '<input type="hidden" name="email" value="hguidi@ciandt.com">';
+		    	echo '<input type="submit" value="Sign in with Google">';
+		    	echo '</form>';
+    		} else {
+    			echo '<div id="my-signin2"></div>';
+    		}?>
       	</div>
     </div>
 	  <script src="js/home.js"></script>

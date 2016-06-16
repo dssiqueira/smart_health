@@ -1,9 +1,10 @@
 <?php
-require('lib/runkeeperAPI.php');
-require('lib/integration.php');
-require('lib/activities.php');
 
-require('lib/config.php');
+require_once('lib/config.php');
+
+require_once('lib/runkeeperAPI.php');
+require_once('lib/integration.php');
+require_once('lib/activities.php');
 
 /* API initialization */
 $rkAPI = new runkeeperAPI();
@@ -26,6 +27,8 @@ if ($_GET['code']) {
 		if (empty($integration->iid)){
 			//It's saving ONLY RunKeeper
 			$integration->insertIntegration(1, $uid, $rkAPI->access_token);
+		} else if ($integration->deleted == 1){
+			$integration->activate($integration->uid, $integration->appid);
 		}
 		
 		//Add last Activity just for test
@@ -46,5 +49,5 @@ if ($_GET['code']) {
 	}		
 }
 
-header("location:app.php");
+header("location:/app.php?connect=RunKeeper");
 
