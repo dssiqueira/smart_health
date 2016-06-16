@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include('lib/user.php');
+
 	
 	$cookie_name = "USER_UID";
 	$user = new user();

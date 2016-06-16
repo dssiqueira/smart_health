@@ -6,6 +6,7 @@ $cookie_name = "USER_UID";
 $user = new user();
 
 $email = null;
+
 	
 //Check logged user by POST, SESSION or COOKIE
 if (isset($_POST['email'])){
