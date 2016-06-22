@@ -91,6 +91,7 @@
         .mdl-dialog {
         	width: 500px;
         	text-align: center;
+            z-index: 99;
         }
         </style>
         <script>
