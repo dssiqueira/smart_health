@@ -1,6 +1,6 @@
 <?php //we can use $dialog_app to display the name of the app connected... ?>
   
-  <dialog class="mdl-dialog" style="z-index: 99;">
+  <dialog class="mdl-dialog" style="z-index: 999;">
 	<div>
 		<img src="/images/health.png">
 	</div>
