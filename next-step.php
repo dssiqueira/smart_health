@@ -112,12 +112,14 @@
 							<img src="https://octodex.github.com/images/inspectocat.jpg" width="200px"></img>
 						</div>
 						<div class="mdl-cell mdl-cell--9-col">
-							<?php
-							$json_file = file_get_contents("https://api.github.com/repos/dssiqueira/runners/issues?state=open");   
-							$json_str = json_decode($json_file, true);
-							foreach ( $json_str as $e ) 
-									{ echo '<a href="'.$e['url'].'" target="_blank">'.$e['title'].'</a><br>'; } 
-							?>
+							<ul class="demo-list-item mdl-list">
+								<?php
+								$json_file = file_get_contents("https://api.github.com/repos/dssiqueira/runners/issues?state=open");   
+								$json_str = json_decode($json_file, true);
+								foreach ( $json_str as $e ) 
+										{ echo '<li class="mdl-list__item"><span class="mdl-list__item-primary-content"><a href="'.$e['url'].'" target="_blank">'.$e['title'].'</a></span></li>'; } 
+								?>
+							</ul>
 						</div>
 					</div>
 					<div class="mdl-grid">
@@ -130,13 +132,108 @@
 						<div class="mdl-cell mdl-cell--3-col" style="text-align: center;">
 							<img src="https://octodex.github.com/images/octobiwan.jpg" width="200px"></img>
 						</div>
-						<div class="mdl-cell mdl-cell--9-col">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus nunc non orci dictum, non ultricies turpis blandit. Fusce feugiat gravida dui, a facilisis mauris tristique vel. Praesent massa sem, egestas nec nibh pretium, fermentum mollis eros. Pellentesque mattis elementum purus nec varius. In eu mi varius, interdum velit ut, fringilla justo. Duis quis libero diam. Maecenas pretium interdum nisl viverra imperdiet. Vestibulum dui eros, blandit eu velit id, tempor efficitur est.
-							</p>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempus nunc non orci dictum, non ultricies turpis blandit. Fusce feugiat gravida dui, a facilisis mauris tristique vel. Praesent massa sem, egestas nec nibh pretium, fermentum mollis eros. Pellentesque mattis elementum purus nec varius. In eu mi varius, interdum velit ut, fringilla justo. Duis quis libero diam. Maecenas pretium interdum nisl viverra imperdiet. Vestibulum dui eros, blandit eu velit id, tempor efficitur est.
-							</p>
+						<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Laravel</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Angular JS</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Angular Material</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div> 
+						</div>
+					</div>
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--3-col" style="text-align: center;">
+							<img src="https://octodex.github.com/images/octobiwan.jpg" width="200px"></img>
+						</div>
+						<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Ranking</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Status per site</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Multilanguage</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div> 
+						</div>
+					</div>
+					<div class="mdl-grid">
+						<div class="mdl-cell mdl-cell--3-col" style="text-align: center;">
+							<img src="https://octodex.github.com/images/octobiwan.jpg" width="200px"></img>
+						</div>
+						<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Achievements</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Profile status</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div>
+							<div class="mdl-cell mdl-cell--3-col">
+							<div class="card-square mdl-card mdl-shadow--2dp">
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__supporting-text">
+											<h2 class="mdl-card__title-text">Events Day</h2>
+									</div>
+									<div class="mdl-card__actions mdl-card--border">
+										<h4></h4>
+									</div>
+							</div> 
 						</div>
 					</div>
 				</div>
