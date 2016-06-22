@@ -1,36 +1,33 @@
 <?php
-	session_start();
+  session_start();
+  require_once('lib/config.php');  
+  require_once('lib/user.php');
+  require_once('lib/integration.php');
 
-	require_once('lib/config.php');
-	
-	require_once('lib/user.php');
-	require_once('lib/integration.php');
-	
-	$cookie_name = "USER_UID";
-	$user = new user();
-	
-	$email = null;
-		
-	//Check logged user by POST, SESSION or COOKIE
-	if (isset($_POST['email'])){
-		$email = $_POST['email'];
+  $cookie_name = "USER_UID";
+  $user = new user();
+  $email = null;
+
+    //Check logged user by POST, SESSION or COOKIE
+    if (isset($_POST['email'])){
+        $email = $_POST['email'];
     } else if (isset($_SESSION['USER_UID'])){
-    	$user = $user->getUserById($_SESSION['USER_UID']);
+        $user = $user->getUserById($_SESSION['USER_UID']);
     } else if (isset($_COOKIE[$cookie_name])) {
-    	$user = $user->getUserById($_COOKIE[$cookie_name]);
+        $user = $user->getUserById($_COOKIE[$cookie_name]);
     } else {
-    	header("location:/index.php");
+        header("location:/index.php");
     }
-	if (empty($user->email) && !empty($email)){
-    	$user = $user->getUserByEmail($email);
-	}
-		
-	if(empty($user->uid) && !empty($email)){
-		$name = $_POST['name'];
-		$path_image = $_POST['image'];
-		$user->insertUser($email, $name, $path_image);
-		$user = $user->getUserByEmail($email);
-	}
+    if (empty($user->email) && !empty($email)){
+        $user = $user->getUserByEmail($email);
+    }
+        
+    if(empty($user->uid) && !empty($email)){
+        $name = $_POST['name'];
+        $path_image = $_POST['image'];
+        $user->insertUser($email, $name, $path_image);
+        $user = $user->getUserByEmail($email);
+    }
 	
 	
 	// ALREADY CONNECTED AND LOGGED //
@@ -91,7 +88,7 @@
         .mdl-dialog {
         	width: 500px;
         	text-align: center;
-            z-index: 99;
+            z-index: 999;
         }
         </style>
         <script>
@@ -111,7 +108,6 @@
     <body>
         <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
 		  <header class="mdl-layout__header" style="color: #fff">
 		    <div class="mdl-layout__header-row">
 		      <!-- Title -->
@@ -120,11 +116,11 @@
 		      <div class="mdl-layout-spacer"></div>
 		      <!-- Navigation. We hide it in small screens. -->
 		      <nav class="mdl-navigation mdl-layout--large-screen-only">
-		        <a class="mdl-navigation__link" href="/app.php">Home</a>
-		        <a class="mdl-navigation__link" href="/about.php">About</a>
-		        <a class="mdl-navigation__link" href="/next-step.php">Next Steps</a>
-		        <a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
-		      </nav>
+                <a class="mdl-navigation__link" href="/app.php" style="color: #FFF;">Home</a>
+                <a class="mdl-navigation__link" href="/about.php" style="color: #FFF;">About</a>
+                <a class="mdl-navigation__link" href="/next-step.php" style="color: #FFF;">Next Steps</a>
+                <a class="mdl-navigation__link" href="#" onclick="signOut();" style="color: #FFF;">Sign Out</a>
+            </nav>
 		      <img src="<?php print $user->path_image;?>" style="width: 50px;border-radius: 30px;"></img>
 		    </div>
 		  </header>
