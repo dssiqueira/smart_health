@@ -31,6 +31,7 @@
 		<title>Next Steps</title>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+		<script src="js/jquery.countdown.js"></script>
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.light_blue-pink.min.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -104,7 +105,7 @@
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--3-col"></div>
 						<div class="mdl-cell mdl-cell--9-col">
-							<h2>What are we doing?</h2>
+							<h2>What Are We Doing?</h2>
 						</div>
 					</div>
 					<div class="mdl-grid">
@@ -132,106 +133,119 @@
 						<div class="mdl-cell mdl-cell--3-col" style="text-align: center;">
 							<img src="https://octodex.github.com/images/octobiwan.jpg" width="200px"></img>
 						</div>
-						<div class="mdl-cell mdl-cell--3-col">
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/laravel.png');"></div>
 									<div class="mdl-card__supporting-text">
 											<h2 class="mdl-card__title-text">Laravel</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
-							</div>
-							<div class="mdl-cell mdl-cell--3-col">
+							</div> 
+						</div>
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/angularjs.png');"></div>
 									<div class="mdl-card__supporting-text">
 											<h2 class="mdl-card__title-text">Angular JS</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
-							</div>
-							<div class="mdl-cell mdl-cell--3-col">
+							</div> 
+						</div>
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/materialangular.png');"></div>
 									<div class="mdl-card__supporting-text">
 											<h2 class="mdl-card__title-text">Angular Material</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
 							</div> 
 						</div>
 					</div>
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--3-col" style="text-align: center;">
-							<img src="https://octodex.github.com/images/octobiwan.jpg" width="200px"></img>
 						</div>
-						<div class="mdl-cell mdl-cell--3-col">
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/ranking.png');"></div>
 									<div class="mdl-card__supporting-text">
 											<h2 class="mdl-card__title-text">Ranking</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
-							</div>
-							<div class="mdl-cell mdl-cell--3-col">
+							</div> 
+						</div>
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/site.png');"></div>
 									<div class="mdl-card__supporting-text">
-											<h2 class="mdl-card__title-text">Status per site</h2>
+											<h2 class="mdl-card__title-text">Statistics by Site</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
-							</div>
-							<div class="mdl-cell mdl-cell--3-col">
+							</div> 
+						</div>
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/multilanguage.png');"></div>
 									<div class="mdl-card__supporting-text">
 											<h2 class="mdl-card__title-text">Multilanguage</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
 							</div> 
 						</div>
 					</div>
 					<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--3-col" style="text-align: center;">
-							<img src="https://octodex.github.com/images/octobiwan.jpg" width="200px"></img>
 						</div>
-						<div class="mdl-cell mdl-cell--3-col">
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/achievements.png');"></div>
 									<div class="mdl-card__supporting-text">
 											<h2 class="mdl-card__title-text">Achievements</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
-							</div>
-							<div class="mdl-cell mdl-cell--3-col">
+							</div> 
+						</div>
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/profile.png');"></div>
 									<div class="mdl-card__supporting-text">
-											<h2 class="mdl-card__title-text">Profile status</h2>
+											<h2 class="mdl-card__title-text">Profile Statistics</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
-							</div>
-							<div class="mdl-cell mdl-cell--3-col">
+							</div> 
+						</div>
+						<div class="mdl-cell mdl-cell--3-col"> 
 							<div class="card-square mdl-card mdl-shadow--2dp">
-									<div class="mdl-card__title mdl-card--expand" style="background: url('images/googlefit.png');"></div>
+									<div class="mdl-card__title mdl-card--expand" style="background: url('images/events.png');"></div>
 									<div class="mdl-card__supporting-text">
 											<h2 class="mdl-card__title-text">Events Day</h2>
 									</div>
 									<div class="mdl-card__actions mdl-card--border">
-										<h4></h4>
+											<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored"><i class="material-icons">-</i></button>
+											<span class="counter">(0)</span>
 									</div>
 							</div> 
 						</div>
@@ -248,14 +262,15 @@
 						<img src="https://octodex.github.com/images/daftpunktocat-thomas.gif" width="200px"></img>
 					</div>
 					<div class="mdl-cell mdl-cell--9-col">
-						<script src="//www.powr.io/powr.js" external-type="html"></script> 
- <div class="powr-countdown-timer" id="d240c27c_1466553780116"></div>
+						<div class="countdown">
+							<span id="clock" style="font-size: 40px;"></span>
+						</div>
 					</div>
 				</div>
 				<div class="mdl-grid">
 						<div class="mdl-cell mdl-cell--3-col"></div>
 						<div class="mdl-cell mdl-cell--9-col">
-							<h2>Join the force</h2>
+							<h2>Join the Force</h2>
 						</div>
 					</div>
 					<div class="mdl-grid">
@@ -276,5 +291,23 @@
 			</main>
 		</div>
 		<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+		<script>
+		$('#clock').countdown('2020/10/10 12:34:56')
+					.on('update.countdown', function(event) {
+					  var format = '%H:%M:%S';
+					  if(event.offset.days > 0) {
+					    format = '%-d day%!d ' + format;
+					  }
+					  if(event.offset.weeks > 0) {
+					    format = '%-w week%!w ' + format;
+					  }
+					  $(this).html(event.strftime(format));
+					})
+					.on('finish.countdown', function(event) {
+					  $(this).html('This offer has expired!')
+					    .parent().addClass('disabled');
+					
+					});
+		</script>
 	</body>
 </html>
