@@ -55,3 +55,9 @@ if (ENVIRONMENT == 'local') {
 }
 
 
+/*
+ * SMART CANVAS
+ */
+
+define('SMARTCANVAS_PROFILE_URL', 'https://ciandt.smartcanvas.com/f/persons/');
+

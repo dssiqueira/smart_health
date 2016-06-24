@@ -64,7 +64,7 @@
 		        <a class="mdl-navigation__link" href="/home/nextstep">Next Steps</a>
 		        <a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
 		      </nav>
-		      <img src="<?php print $user->image_path;?>" style="width: 50px;border-radius: 30px;"></img>
+		      <a href="<?php print SMARTCANVAS_PROFILE_URL . $user->email; ?>" target="_blank"><img src="<?php print $user->image_path;?>" style="width: 50px;border-radius: 30px;"></img>
 		    </div>
 		  </header>
 		  <div class="mdl-layout__drawer">
