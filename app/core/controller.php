@@ -1,5 +1,4 @@
 <?php
-
 class Controller {
 	/**
 	 *
@@ -18,13 +17,13 @@ class Controller {
 	function __construct() {
 		
 		// start session
-		session_start();		
+		session_start ();
 		
 		// getting the className of the Controller who extends controller class
 		$class = get_called_class ();
 		$this->openDatabaseConnection ();
 		// passing this classname as parameter to loadModel Function
-		$this->model = $this->loadModel ( $class );		
+		$this->model = $this->loadModel ( $class );
 	}
 	/**
 	 * Open the database connection with the credentials from application/config/config.php
@@ -42,12 +41,12 @@ class Controller {
 	}
 	/**
 	 * Loads the "model".
-	 * 
+	 *
 	 * @return object model
 	 */
 	public function loadModel($model_name = null) {
 		
-		//Auto-load common Model
+		// Auto-load common Model
 		require_once APP . 'core/model.php';
 		$new_model = APP . 'models/' . strtolower ( $model_name ) . 'Model.php';
 		
@@ -58,10 +57,9 @@ class Controller {
 			$model = $model_name . 'Model';
 			$return_model = new $model ( $this->db );
 		} else {
-			$return_model = new Model( $this->db );
+			$return_model = new Model ( $this->db );
 		}
 		
 		return $return_model;
 	}
-	
 }

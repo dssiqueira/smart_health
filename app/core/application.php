@@ -1,10 +1,8 @@
 <?php
 class Application {
-	
 	private $url_controller = null;
 	private $url_action = null;
 	private $url_params = array ();
-	
 	public function __construct() {
 		// create array with URL parts in $url
 		$this->splitUrl ();
