@@ -54,6 +54,8 @@
 	        });
 	      }
 		</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://getaninsight.com/id/wi/1171/jq/1/b/0790D5/p/r/t/y/"></script> 
 </head>
 <body>
 	<!-- Always shows a header, even in smaller screens. -->
