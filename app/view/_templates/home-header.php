@@ -1,4 +1,6 @@
 <html>
+<meta charset="UTF-8">
+<title>CI&T Health</title>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet"
@@ -69,9 +71,8 @@
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
-					<a class="mdl-navigation__link" href="/home">Home</a> <a
-						class="mdl-navigation__link" href="/home/about">About</a> <a
-						class="mdl-navigation__link" href="/home/nextstep">Next Steps</a>
+					<a class="mdl-navigation__link" href="/home">Home</a>
+					<a class="mdl-navigation__link" href="/home/nextstep">Next Step</a>
 					<a class="mdl-navigation__link" href="#" onclick="signOut();">Sign
 						Out</a>
 				</nav>
@@ -84,10 +85,9 @@
 		<div class="mdl-layout__drawer">
 			<span class="mdl-layout-title">Health</span>
 			<nav class="mdl-navigation">
-				<a class="mdl-navigation__link" href="/home">Home</a> <a
-					class="mdl-navigation__link" href="/home/about">About</a> <a
-					class="mdl-navigation__link" href="/home/nextstep">Next Step</a> <a
-					class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
+				<a class="mdl-navigation__link" href="/home">Home</a>
+				<a class="mdl-navigation__link" href="/home/nextstep">Next Step</a> 
+				<a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
 			</nav>
 		</div>
 		<main class="mdl-layout__content">

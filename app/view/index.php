@@ -1,5 +1,7 @@
 <html>
 <head>
+<meta charset="UTF-8">
+<title>CI&T Health</title>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
@@ -16,7 +18,15 @@
 	<div id="logo" style="margin-top: 160px;">
 		<img src="img/CIT.png" width="30%"></img>
 		<h1>Health</h1>
-		<div style="position: absolute; right: 50%; margin-right: -120px;">
+	</div>
+	<div class="healthers">
+		<h2>15 Healthers</h2>
+	</div>
+	<div class="kilometers">
+		<h3>kilometers traveled:</h3>
+		<span>1000 km</span>
+	</div>
+	<div class="login" style="position: absolute; right: 50%; margin-right: -120px;">
       	<?php if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']  == 'localhost') : ?>
 		    <form action="home" method="POST">
 				'; <input type="hidden" name="email" value="hguidi@ciandt.com">'; <input
@@ -26,7 +36,6 @@
     	    <div id="my-signin2"></div>
 		<?php endif; ?>                                
       	</div>
-	</div>
 	<script src="js/home.js"></script>
 	<script
 		src="https://apis.google.com/js/platform.js?onload=renderButton" async

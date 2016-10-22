@@ -50,10 +50,7 @@
 					target="_blank" style="text-decoration: none;"> <img
 						src="https://lh4.googleusercontent.com/-7VQwiIQW9tc/AAAAAAAAAAI/AAAAAAAAABE/05PlkhseRBk/s96-c/photo.jpg"
 						style="width: 50px; border-radius: 30px;"></img>
-				</a> <span>Douglas Siqueira</span> <span
-					class="mdl-list__item-text-body"> Bryan Cranston played the role of
-						Walter in Breaking Bad. He is also known for playing Hal in Malcom
-						in the Middle. </span>
+				 <span>Douglas Siqueira</span></a>
 			</span></li>
 			<li class="mdl-list__item mdl-list__item--three-line"><span
 				class="mdl-list__item-primary-content"> <a
@@ -61,10 +58,7 @@
 					target="_blank" style="text-decoration: none;"> <img
 						src="https://lh3.googleusercontent.com/-onzFk19sFpQ/AAAAAAAAAAI/AAAAAAAABvY/Y3UhVdy3blo/s96-c/photo.jpg"
 						style="width: 50px; border-radius: 30px;"></img>
-				</a> <span>Herinque Guidi</span> <span
-					class="mdl-list__item-text-body"> Aaron Paul played the role of
-						Jesse in Breaking Bad. He also featured in the "Need For Speed"
-						Movie. </span>
+				<span>Herinque Guidi</span></a> 
 			</span></li>
 		</ul>
 	</div>

@@ -75,7 +75,7 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--12-col">
 		<h2>Second step, go outside and run!</h2>
-		<h4>Go Forrest, go!</h4>
+		<h4>Run Forrest, Run!</h4>
 	</div>
 </div>
 <div class="mdl-grid">
