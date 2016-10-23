@@ -78,7 +78,7 @@
 				</nav>
 				<a href="<?php print SMARTCANVAS_PROFILE_URL . $user->email; ?>"
 					target="_blank"><img src="<?php print $user->image_path;?>"
-					style="width: 50px; border-radius: 30px;"></img>
+					style="width: 50px; border-radius: 30px;"></img></a>
 			
 			</div>
 		</header>

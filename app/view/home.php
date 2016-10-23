@@ -89,12 +89,12 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--4-col">
 		<div class="card-square mdl-card mdl-shadow--2dp">
-                                <?php
-																																$app_name = 'Google Fit';
-																																$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
-																																$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
-																																$vote = isset ( $poll->vote ) ? $poll->vote : 0;
-																																?>
+<?php
+$app_name = 'Google Fit';
+$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
+$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
+$vote = isset ( $poll->vote ) ? $poll->vote : 0;
+?>
                                 <div
 				class="mdl-card__title mdl-card--expand"
 				style="background: url('img/googlefit.png');"></div>
@@ -120,12 +120,12 @@
 	</div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div class="card-square mdl-card mdl-shadow--2dp">
-                                <?php
-																																$app_name = 'Adidas Run';
-																																$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
-																																$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
-																																$vote = isset ( $poll->vote ) ? $poll->vote : 0;
-																																?>
+<?php
+$app_name = 'Adidas Run';
+$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
+$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
+$vote = isset ( $poll->vote ) ? $poll->vote : 0;
+?>
                                 <div
 				class="mdl-card__title mdl-card--expand"
 				style="background: url('img/adidas.png');"></div>
@@ -152,11 +152,11 @@
 	<div class="mdl-cell mdl-cell--4-col">
 		<div class="card-square mdl-card mdl-shadow--2dp">
                                 <?php
-																																$app_name = 'MapMyRun';
-																																$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
-																																$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
-																																$vote = isset ( $poll->vote ) ? $poll->vote : 0;
-																																?>
+$app_name = 'MapMyRun';
+$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
+$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
+$vote = isset ( $poll->vote ) ? $poll->vote : 0;
+?>
                                 <div class="mdl-card__title mdl-card--expand" style="<?php echo"background: url('img/" . strtolower($app_name) . ".png');"; ?>"></div>
 			<div class="mdl-card__supporting-text">
 				<h2 class="mdl-card__title-text"><?php echo $app_name; ?></h2>
@@ -182,12 +182,12 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--4-col">
 		<div class="card-square mdl-card mdl-shadow--2dp">
-                                <?php
-																																$app_name = 'Endomondo';
-																																$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
-																																$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
-																																$vote = isset ( $poll->vote ) ? $poll->vote : 0;
-																																?>
+<?php
+$app_name = 'Endomondo';
+$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
+$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
+$vote = isset ( $poll->vote ) ? $poll->vote : 0;
+?>
                                 <div class="mdl-card__title mdl-card--expand" style="<?php echo"background: url('img/" . strtolower($app_name) . ".png');"; ?>"></div>
 			<div class="mdl-card__supporting-text">
 				<h2 class="mdl-card__title-text"><?php echo $app_name; ?></h2>
@@ -211,12 +211,12 @@
 	</div>
 	<div class="mdl-cell mdl-cell--4-col">
 		<div class="card-square mdl-card mdl-shadow--2dp">
-                                <?php
-																																$app_name = 'Runtastic';
-																																$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
-																																$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
-																																$vote = isset ( $poll->vote ) ? $poll->vote : 0;
-																																?>
+<?php
+$app_name = 'Runtastic';
+$poll = $pollsModule->getVoteByUserIdAndPoll ( $user->id, $app_name );
+$vote_count = $pollsModule->getCountOfVoteByPoll ( $app_name )->count;
+$vote = isset ( $poll->vote ) ? $poll->vote : 0;
+?>
                                 <div class="mdl-card__title mdl-card--expand" style="<?php echo"background: url('img/" . strtolower($app_name) . ".png');"; ?>"></div>
 			<div class="mdl-card__supporting-text">
 				<h2 class="mdl-card__title-text"><?php echo $app_name; ?></h2>

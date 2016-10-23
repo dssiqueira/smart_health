@@ -63,4 +63,23 @@ class ActivityModel extends Model {
 		
 		return true;
 	}
+
+	/*
+	 * @method getTotalDistance
+	 * @author hguidi
+	 * @param 
+	 * @return integer
+	 */
+	public function getTotalDistance() {
+		$sql = "SELECT sum(distance)  as sum FROM activities WHERE deleted = :deleted";
+		$parameters = array (
+			':deleted' => 0
+		);
+		
+		$query = $this->db->prepare ( $sql );
+		$query->execute ( $parameters );
+		
+		return $query->fetch ();
+	}
+
 }

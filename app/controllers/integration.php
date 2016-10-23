@@ -115,18 +115,22 @@ class Integration extends Controller {
 			
 			$integration = $integrationModel->getIntegrationByUserIdAndAppId ( $uid, RUNKEEPER_ID );
 			
-			// Add last Activity just for test
-			$rkActivities = $rkAPI->getLastActivity ();
+			// Add All Activities
+			$rkActivities = $rkAPI->getAllActivities ();
 			
 			require_once APP . 'models/activityModel.php';
 			$activitiesModel = new ActivityModel ( $this->db );
 			
-			$activitiesModel->insertActivity ( 
-					$integration->id, 
-					strtotime ( $rkActivities ['items'] [0] ['start_time'] ), 
-					$rkActivities ['items'] [0] ['type'], 
-					$rkActivities ['items'] [0] ['total_distance'], 
-					$rkActivities ['items'] [0] ['total_calories'] );
+			$size = $rkActivities ['size'];
+
+			for ($i = 0; $i = $size-1; $i++) {
+				$activitiesModel->insertActivity ( 
+						$integration->id, 
+						strtotime ( $rkActivities ['items'] [$i] ['start_time'] ), 
+						$rkActivities ['items'] [$i] ['type'], 
+						$rkActivities ['items'] [$i] ['total_distance'], 
+						$rkActivities ['items'] [$i] ['total_calories'] );				
+			}
 		}
 		header ( 'location: ' . URL . 'home?connect=Runkeeper' );
 	}

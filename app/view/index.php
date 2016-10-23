@@ -15,22 +15,34 @@
 
 </head>
 <body class="homepage">
-	<div id="logo" style="margin-top: 160px;">
+	<div id="logo" style="margin-top: 50px;">
 		<img src="img/CIT.png" width="30%"></img>
+	</div>
+	<div id="name" style="margin-top: -50px;"">
 		<h1>Health</h1>
 	</div>
-	<div class="healthers">
-		<h2>15 Healthers</h2>
-	</div>
 	<div class="kilometers">
-		<h3>kilometers traveled:</h3>
-		<span>1000 km</span>
+		<h2>Since <?php echo number_format($totalDistance,2) ?> Kilometers ago</h2>
 	</div>
+
+	<div class="healthers">		
+<?php
+foreach ($lastUsers as $singleUser) {
+?>
+		<img src="<?php print $singleUser->image_path;?>" style="width: 50px; border-radius: 30px;"></img>
+
+<?php
+}
+?>
+		<h3><?php echo $usersCount; ?> CI&T Healthers aready joined.</h3>
+		<h3>Be healthy, join us.</h3>
+	</div>
+
 	<div class="login" style="position: absolute; right: 50%; margin-right: -120px;">
       	<?php if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']  == 'localhost') : ?>
 		    <form action="home" method="POST">
-				'; <input type="hidden" name="email" value="hguidi@ciandt.com">'; <input
-					type="submit" value="Sign in with Google">';
+				<input type="hidden" name="email" value="hguidi@ciandt.com">
+				<input type="submit" value="Sign in with Google">
 			</form>
 		<?php else : ?>
     	    <div id="my-signin2"></div>

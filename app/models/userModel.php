@@ -107,4 +107,37 @@ class UserModel extends Model {
 		
 		return $query->execute ( $parameters );
 	}
+
+	/*
+	 * @method getUsersCount
+	 * @author hguidi
+	 * @param 
+	 * @return integer
+	 */
+	public function getUsersCount() {
+		$sql = "SELECT count(*)  as count FROM users WHERE deleted = :deleted";
+		$parameters = array (
+			':deleted' => 0
+		);
+		
+		$query = $this->db->prepare ( $sql );
+		$query->execute ( $parameters );
+		
+		return $query->fetch ();
+	}
+
+	/*
+	 * @method getLastUsers
+	 * @author hguidi
+	 * @param numberOfUsers
+	 * @return integer
+	 */
+	public function getLastUsers($numberOfUsers) {
+		$sql = "SELECT name, email, image_path FROM users as r1 JOIN (SELECT CEIL(RAND() * (SELECT MAX(id) FROM users)) AS id) AS r2 WHERE r1.id >= r2.id and r1.deleted = 0 ORDER BY r1.id ASC LIMIT ".$numberOfUsers.";";
+		$query = $this->db->prepare ( $sql );
+		$query->execute ();
+
+		return $query->fetchAll ();
+	}	
+
 }
