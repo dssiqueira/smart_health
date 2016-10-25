@@ -48,6 +48,13 @@ class ActivityModel extends Model {
 			// Already saved, nothing to do
 			return false;
 		}
+		if (is_null($distance) or $distance <= 0) {
+			// at least distance we should have! =(
+			return false;
+		}
+		if (!isset($calories)){
+			$calories = 0;
+		}
 		
 		$sql = "INSERT INTO activities (integration_id, start_date, type, distance, calories, created_at, updated_at) VALUE (:integration_id, :date, :type, :distance, :calories, NOW(), NOW())";
 		$parameters = array (

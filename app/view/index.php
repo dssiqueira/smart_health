@@ -11,24 +11,22 @@
 	content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">
 <link href='css/home.css' rel='stylesheet' type='text/css'>
 <script src="public/js/jquery.animateNumber.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0;user-scalable=0;" name="viewport">
+
 <script type="text/javascript">
 $( document ).ready(function() {
-    $('#lines').animateNumber({ number: <?php echo $totalDistance ?> }, 10000);
+    $('#lines').animateNumber({ number: <?php echo $totalDistance ?> }, 1000);
     console.log(test);
 });
 	
 </script>
 </head>
 <body class="homepage">
-	<div id="logo">
-		<img src="img/CIT.png" width="30%"></img>
-	</div>
-	<div id="name" style="margin-top: -50px;"">
-		<h1>Health</h1>
+	<div class="logo">
+		<img src="img/logo.png" width="30%" ></img>
 	</div>
 	<div class="kilometers">
-		<h2>Since <span id="lines">0</span> Kilometers ago</h2>
+		<h2>Since <span id="lines">0</span> kilometers ago</h2>
 	</div>
 
 	<div class="healthers">		
@@ -41,7 +39,7 @@ foreach ($lastUsers as $singleUser) {
 }
 ?>
 		<h3><?php echo $usersCount; ?> CI&T Healthers aready joined.</h3>
-		<h3>Be healthy, join us.</h3>
+		<h3>Join us:</h3>
 	</div>
 
 	<div class="login" style="position: absolute; right: 50%; margin-right: -120px;">

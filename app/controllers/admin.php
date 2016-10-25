@@ -115,6 +115,104 @@ class Admin extends Controller {
 	
 	/*
 	 * 
+	 * Page to run the refresh job for ALL CONTENT. Be Carefull it'll take sometime!!
+	 * 
+	 */
+	public function runFullJob() {
+		$this->isAdmin ();
+		
+		$user = $this->authUser;
+		
+		// HEADER
+		require APP . 'view/_templates/home-header.php';
+		require APP . 'view/admin.php';
+		
+		// CONTENT
+		$users = $this->userModel->getAllUsers ();
+		
+		require_once APP . 'models/activityModel.php';
+		$activityModel = new ActivityModel ( $this->db );
+
+		require_once APP . 'models/integrationModel.php';
+		$integrationModel = new IntegrationModel ( $this->db );
+		
+		// Load Strava API
+		require_once APP . 'lib/stravaAPI.php';
+		$stravaAPI = new stravaAPI ();
+		
+		
+		// Load Runkeeper API
+		require_once APP . 'lib/runkeeperAPI.php';
+		$rkAPI = new runkeeperAPI ();
+		
+		
+		// For each user
+		foreach ( $users as $singleUser ) {
+			$integrations = $integrationModel->getAllIntegrationsByUserId($singleUser->id);
+
+			print '<br/>Name: ' . $singleUser->name . '  Created at: ' . $singleUser->created_at . '  ' . '  Deleted? ' . $singleUser->deleted . '</br>';
+				
+			// And each integration of this user
+			foreach ($integrations as $integration) {
+				if ($integration->app_id == STRAVA_ID) {
+					// Save Last activity for Strava
+					$stravaAPI->setStravaToken ( $integration->token );
+					$stravaActivities = $stravaAPI->getLastActivity ();
+										
+					$retAct = $activityModel->insertActivity ( 
+							$integration->id, 
+							strtotime ( $stravaActivities [0] ['start_date_local'] ), 
+							$stravaActivities [0] ['type'], 
+							$stravaActivities [0] ['distance'], 
+							'0' ); // no calories for Stravia =(
+					
+					if ($retAct) {
+						print '    Strava activity updated - ' . $stravaActivities [0] ['start_date_local'] . '</br>';
+					} else {
+						print '    Strava activity already updated </br>';
+					}
+								
+				} elseif ($integration->app_id == RUNKEEPER_ID) {
+					// Save ALL activities for Runkeeper
+					
+					$rkActivities = $rkAPI->getAllActivities ();
+					
+					require_once APP . 'models/activityModel.php';
+					$activitiesModel = new ActivityModel ( $this->db );
+					
+					$size = $rkActivities ['size'];
+					if (!isset($size)) {
+						$size = 0;
+					}
+
+					for ($i = 0; $i = $size-1; $i++) {
+						$retAct->insertActivity ( 
+								$integration->id, 
+								strtotime ( $rkActivities ['items'] [$i] ['start_time'] ), 
+								$rkActivities ['items'] [$i] ['type'], 
+								$rkActivities ['items'] [$i] ['total_distance'], 
+								$rkActivities ['items'] [$i] ['total_calories'] );				
+						if ($retAct) {
+							print '    Runkeeper activity updated - ' . $rkActivities ['items'] [0] ['start_time'] . '</br>';
+						} else {
+							print '    Runkeeper activity ('. $rkActivities ['items'] [0] ['start_time'] .') already updated </br>';			
+						}
+					}
+					
+				} else {
+					print '    OTHER APPLICATION - app_id = ' . $integration->app_id . '</br>';
+				}
+			}
+						
+		}
+		
+		// FOOTER
+		require APP . 'view/_templates/home-footer.php';
+	}
+
+
+	/*
+	 * 
 	 * Page to list all Users
 	 * 
 	 */

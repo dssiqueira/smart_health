@@ -1,8 +1,7 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--3-col"></div>
 	<div class="mdl-cell mdl-cell--9-col">
-		<h2>What Are We Doing?</h2>
-		<h4>Acompanhe em tempo real a nossa evolução.</h4>
+		<h2>What comes next?</h2>
 	</div>
 </div>
 <div class="mdl-grid">
@@ -18,7 +17,7 @@
 				<h2 class="mdl-card__title-text">Profile Statistics</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>Que tal compartilhar sua conquistas? É hora de mostrar toda sua evoução.</span>
+				<span>How about sharing your achievements? It's time to show your progress.</span>
 			</div>
 		</div>
 	</div>
@@ -29,7 +28,7 @@
 				<h2 class="mdl-card__title-text">Achievements</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>Todo esforço merece uma recomença. Aguarde nossos novos badges.</span>
+				<span>Effort deserves reward. Wait for our new badges.</span>
 			</div>
 		</div>
 	</div>
@@ -41,7 +40,7 @@
 				<h2 class="mdl-card__title-text">Events Day</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>Iremos trazer eventos especiais para vocês ;)</span>
+				<span>We'll bring special events to you ;)</span>
 			</div>
 		</div>
 	</div>
@@ -56,7 +55,7 @@
 				<h2 class="mdl-card__title-text">Ranking</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>Que tal aumentar a disputa? É hora de saber quem nossos maiores ciclistas, corredores e caminhadistas.</span>
+				<span>Do you like competition? It's time to know the greatest cyclist, runner and walker.</span>
 			</div>
 		</div>
 	</div>
@@ -68,7 +67,7 @@
 				<h2 class="mdl-card__title-text">Statistics by Site</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>E as outras bases? Vamos conferir o resultado de cada base.</span>
+				<span>What about the other sites? Let's check the results of them.</span>
 			</div>
 		</div>
 	</div>
@@ -80,7 +79,7 @@
 				<h2 class="mdl-card__title-text">Multilanguage</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>A CI&T é global e também queremos ser, teremos a aplicação em todas as linguas que a CI&T "falar".</span>
+				<span>A CI&T é global e também queremos ser. Todas as línguas que a CI&T fala, também queremos falar.</span>
 			</div>
 		</div>
 	</div>
@@ -89,6 +88,7 @@
 	<div class="mdl-cell mdl-cell--3-col"></div>
 	<div class="mdl-cell mdl-cell--9-col">
 		<h2>Join the Force</h2>
+		<h4>You should noticed that there is a lot of work to do. Any help is appreciated ;-) </h4>
 	</div>
 </div>
 <div class="mdl-grid">
@@ -97,6 +97,6 @@
 			width="200px"></img>
 	</div>
 	<div class="mdl-cell mdl-cell--9-col">
-		<span>Nos ajude a evuluir a ferramenta, é um boa oportunidade para estudar novas tecnologias e se divertir. <a href="mailto:douglass@ciandt.com">Lest's Go!</a></span>
+		<span>Help us develop the tool, it is a good opportunity to study new technologies and have fun.<a href="mailto:douglass@ciandt.com?cc=hguidi@ciandt.com&subject=Join the force - Health">Let's Go!</a></span>
 	</div>
 </div>
