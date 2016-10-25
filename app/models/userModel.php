@@ -115,7 +115,7 @@ class UserModel extends Model {
 	 * @return integer
 	 */
 	public function getUsersCount() {
-		$sql = "SELECT count(*)  as count FROM users WHERE deleted = :deleted";
+		$sql = "SELECT count(id)  as count FROM users WHERE deleted = :deleted";
 		$parameters = array (
 			':deleted' => 0
 		);

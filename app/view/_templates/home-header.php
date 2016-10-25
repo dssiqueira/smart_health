@@ -42,6 +42,9 @@
 	width: 500px;
 	text-align: center;
 }
+.material-icons{
+	padding-top: 10px;
+}
 </style>
 <script>
 		  function signOut() {
@@ -63,10 +66,11 @@
 	<!-- Always shows a header, even in smaller screens. -->
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-		<header class="mdl-layout__header" style="color: #fff">
+		<header class="mdl-layout__header" style="color: #000">
 			<div class="mdl-layout__header-row">
 				<!-- Title -->
-				<span class="mdl-layout-title"><img src="/img/CIT.png" width="80px"></img>Health</span>
+
+				<div class="mdl-layout-title"><img src="/img/CIT.png" width="80px"><span style="font-size: 28px; position: absolute; margin-top: 6px;">Health</span></div>
 				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->

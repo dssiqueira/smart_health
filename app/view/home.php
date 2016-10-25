@@ -113,7 +113,7 @@ $vote = isset ( $poll->vote ) ? $poll->vote : 0;
 						type="submit" value="-"
 						class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">								
 								<?php endif; ?>                                
-	                                    <span class="counter">(<?php print $vote_count; ?>)</span>
+	                                    <span class="counter">Votes (<?php print $vote_count; ?>)</span>
 				</form>
 			</div>
 		</div>
@@ -144,7 +144,7 @@ $vote = isset ( $poll->vote ) ? $poll->vote : 0;
 						type="submit" value="-"
 						class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">								
 								<?php endif; ?>                                
-	                                    <span class="counter">(<?php print $vote_count; ?>)</span>
+	                                    <span class="counter">Votes (<?php print $vote_count; ?>)</span>
 				</form>
 			</div>
 		</div>
@@ -173,7 +173,7 @@ $vote = isset ( $poll->vote ) ? $poll->vote : 0;
 						type="submit" value="-"
 						class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">								
 								<?php endif; ?>                                
-	                                    <span class="counter">(<?php print $vote_count; ?>)</span>
+	                                    <span class="counter">Votes (<?php print $vote_count; ?>)</span>
 				</form>
 			</div>
 		</div>
@@ -204,7 +204,7 @@ $vote = isset ( $poll->vote ) ? $poll->vote : 0;
 						type="submit" value="-"
 						class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">								
 								<?php endif; ?>                                
-	                                    <span class="counter">(<?php print $vote_count; ?>)</span>
+	                                    <span class="counter">Votes (<?php print $vote_count; ?>)</span>
 				</form>
 			</div>
 		</div>
@@ -233,7 +233,7 @@ $vote = isset ( $poll->vote ) ? $poll->vote : 0;
 						type="submit" value="-"
 						class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored">								
 								<?php endif; ?>                                
-	                                    <span class="counter">(<?php print $vote_count; ?>)</span>
+	                                    <span class="counter">Votes (<?php print $vote_count; ?>)</span>
 				</form>
 			</div>
 		</div>

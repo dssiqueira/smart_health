@@ -10,26 +10,32 @@
 <meta name="google-signin-client_id"
 	content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">
 <link href='css/home.css' rel='stylesheet' type='text/css'>
-
+<script src="public/js/jquery.animateNumber.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script type="text/javascript">
+$( document ).ready(function() {
+    $('#lines').animateNumber({ number: <?php echo $totalDistance ?> }, 10000);
+    console.log(test);
+});
+	
+</script>
 </head>
 <body class="homepage">
-	<div id="logo" style="margin-top: 50px;">
+	<div id="logo">
 		<img src="img/CIT.png" width="30%"></img>
 	</div>
 	<div id="name" style="margin-top: -50px;"">
 		<h1>Health</h1>
 	</div>
 	<div class="kilometers">
-		<h2>Since <?php echo number_format($totalDistance,2) ?> Kilometers ago</h2>
+		<h2>Since <span id="lines">0</span> Kilometers ago</h2>
 	</div>
 
 	<div class="healthers">		
 <?php
 foreach ($lastUsers as $singleUser) {
 ?>
-		<img src="<?php print $singleUser->image_path;?>" style="width: 50px; border-radius: 30px;"></img>
+		<a href="<?php print SMARTCANVAS_PROFILE_URL .$singleUser->email;?>" target="_blank" title="<?php print $singleUser->name;?>"><img src="<?php print $singleUser->image_path;?>" alt="<?php print $singleUser->name;?>" style="width: 50px; border-radius: 30px;"></img></a>
 
 <?php
 }
