@@ -40,7 +40,7 @@
 				<h2 class="mdl-card__title-text">Events Day</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>We'll bring special events to you ;)</span>
+				<span>Special events for you ;)</span>
 			</div>
 		</div>
 	</div>
