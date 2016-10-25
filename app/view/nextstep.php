@@ -1,8 +1,7 @@
 <div class="mdl-grid">
 	<div class="mdl-cell mdl-cell--3-col"></div>
 	<div class="mdl-cell mdl-cell--9-col">
-		<h2>What Are We Doing?</h2>
-		<h4>Follow in real time to our evolution.</h4>
+		<h2>What comes next?</h2>
 	</div>
 </div>
 <div class="mdl-grid">
@@ -18,7 +17,7 @@
 				<h2 class="mdl-card__title-text">Profile Statistics</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>How about sharing your achievements? It's time to show its evolution.</span>
+				<span>How about sharing your achievements? It's time to show your progress.</span>
 			</div>
 		</div>
 	</div>
@@ -29,7 +28,7 @@
 				<h2 class="mdl-card__title-text">Achievements</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>Every effort deserves a reward. Wait our new achievements.</span>
+				<span>Effort deserves reward. Wait for our new badges.</span>
 			</div>
 		</div>
 	</div>
@@ -56,7 +55,7 @@
 				<h2 class="mdl-card__title-text">Ranking</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>How about increasing the dispute? It's time to know who our best healthers.</span>
+				<span>Do you like competition? It's time to know the greatest cyclist, runner and walker.</span>
 			</div>
 		</div>
 	</div>
@@ -68,7 +67,7 @@
 				<h2 class="mdl-card__title-text">Statistics by Site</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>And the other sites? Let's check the result by site.</span>
+				<span>What about the other sites? Let's check the results of them.</span>
 			</div>
 		</div>
 	</div>
@@ -80,7 +79,7 @@
 				<h2 class="mdl-card__title-text">Multilanguage</h2>
 			</div>
 			<div class="mdl-card__actions mdl-card--border">
-				<span>The CI&T is global and we want to be, we will have to apply in all languages ​​that CI&T "speak".</span>
+				<span>A CI&T é global e também queremos ser. Todas as línguas que a CI&T fala, também queremos falar.</span>
 			</div>
 		</div>
 	</div>
@@ -89,6 +88,7 @@
 	<div class="mdl-cell mdl-cell--3-col"></div>
 	<div class="mdl-cell mdl-cell--9-col">
 		<h2>Join the Force</h2>
+		<h4>You should noticed that there is a lot of work to do. Any help is appreciated ;-) </h4>
 	</div>
 </div>
 <div class="mdl-grid">

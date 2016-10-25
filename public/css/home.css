@@ -42,6 +42,11 @@ h3 {
 	width: 50px;
 }
 
+.logo {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
 .logo-name {
 	margin-top: -50px;
 }

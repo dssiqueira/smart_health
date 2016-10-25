@@ -107,31 +107,12 @@ class Integration extends Controller {
 		if ($rkAPI->getRunkeeperToken ( $auth_code ) == false) {
 			header ( 'location: ' . URL . 'error?error=SAVE_INTEGRATION_TOKEN_ERROR' );
 		} else {
-			
+			// Save Integragtion
 			require_once APP . 'models/integrationModel.php';
 			$integrationModel = new IntegrationModel ( $this->db );
-			// Save / Update integration
-			$integrationModel->insertIntegration ( RUNKEEPER_ID, $uid, $rkAPI->access_token );
-			
-			$integration = $integrationModel->getIntegrationByUserIdAndAppId ( $uid, RUNKEEPER_ID );
-			
-			// Add All Activities
-			$rkActivities = $rkAPI->getAllActivities ();
-			
-			require_once APP . 'models/activityModel.php';
-			$activitiesModel = new ActivityModel ( $this->db );
-			
-			$size = $rkActivities ['size'];
-
-			for ($i = 0; $i = $size-1; $i++) {
-				$activitiesModel->insertActivity ( 
-						$integration->id, 
-						strtotime ( $rkActivities ['items'] [$i] ['start_time'] ), 
-						$rkActivities ['items'] [$i] ['type'], 
-						$rkActivities ['items'] [$i] ['total_distance'], 
-						$rkActivities ['items'] [$i] ['total_calories'] );				
-			}
+			$integrationModel->insertIntegration ( RUNKEEPER_ID, $uid, $rkAPI->access_token );			
 		}
+
 		header ( 'location: ' . URL . 'home?connect=Runkeeper' );
 	}
 	
