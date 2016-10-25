@@ -97,6 +97,6 @@
 			width="200px"></img>
 	</div>
 	<div class="mdl-cell mdl-cell--9-col">
-		<span>Help us develop the tool, it is a good opportunity to study new technologies and have fun.<a href="mailto:douglass@ciandt.com">Let's Go!</a></span>
+		<span>Help us develop the tool, it is a good opportunity to study new technologies and have fun.<a href="mailto:douglass@ciandt.com?cc=hguidi@ciandt.com&subject=Join the force - Health">Let's Go!</a></span>
 	</div>
 </div>
