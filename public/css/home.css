@@ -36,3 +36,18 @@ h3 {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
+
+.healthers a img {
+	border-radius: 30px;
+	width: 50px;
+}
+
+.logo-name {
+	margin-top: -50px;
+}
+
+.login {
+	margin-right: -120px;
+	position: absolute;
+	right: 50%;
+}

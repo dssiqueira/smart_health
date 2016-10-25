@@ -17,25 +17,25 @@ $( document ).ready(function() {
     $('#lines').animateNumber({ number: <?php echo $totalDistance ?> }, 10000);
     console.log(test);
 });
-	
+
 </script>
 </head>
 <body class="homepage">
 	<div id="logo">
 		<img src="img/CIT.png" width="30%"></img>
 	</div>
-	<div id="name" style="margin-top: -50px;"">
+	<div id="name" class="logo-name">
 		<h1>Health</h1>
 	</div>
 	<div class="kilometers">
 		<h2>Since <span id="lines">0</span> Kilometers ago</h2>
 	</div>
 
-	<div class="healthers">		
+	<div class="healthers">
 <?php
 foreach ($lastUsers as $singleUser) {
 ?>
-		<a href="<?php print SMARTCANVAS_PROFILE_URL .$singleUser->email;?>" target="_blank" title="<?php print $singleUser->name;?>"><img src="<?php print $singleUser->image_path;?>" alt="<?php print $singleUser->name;?>" style="width: 50px; border-radius: 30px;"></img></a>
+		<a href="<?php print SMARTCANVAS_PROFILE_URL .$singleUser->email;?>" target="_blank" title="<?php print $singleUser->name;?>"><img src="<?php print $singleUser->image_path;?>" alt="<?php print $singleUser->name;?>"></img></a>
 
 <?php
 }
@@ -44,7 +44,7 @@ foreach ($lastUsers as $singleUser) {
 		<h3>Be healthy, join us.</h3>
 	</div>
 
-	<div class="login" style="position: absolute; right: 50%; margin-right: -120px;">
+	<div class="login">
       	<?php if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']  == 'localhost') : ?>
 		    <form action="home" method="POST">
 				<input type="hidden" name="email" value="hguidi@ciandt.com">
@@ -52,7 +52,7 @@ foreach ($lastUsers as $singleUser) {
 			</form>
 		<?php else : ?>
     	    <div id="my-signin2"></div>
-		<?php endif; ?>                                
+		<?php endif; ?>
       	</div>
 	<script src="js/home.js"></script>
 	<script
