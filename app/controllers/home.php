@@ -34,6 +34,7 @@ class Home extends Controller {
 		require APP . 'view/home.php';
 		require APP . 'view/_templates/home-footer.php';
 	}
+
 	public function about() {
 		$this->isAuthenticated ();
 		$user = $this->authUser;
@@ -42,6 +43,7 @@ class Home extends Controller {
 		require APP . 'view/about.php';
 		require APP . 'view/_templates/home-footer.php';
 	}
+
 	public function nextstep() {
 		$this->isAuthenticated ();
 		$user = $this->authUser;
@@ -50,6 +52,7 @@ class Home extends Controller {
 		require APP . 'view/nextstep.php';
 		require APP . 'view/_templates/home-footer.php';
 	}
+
 	public function getAllIntegrations() {
 		$integration = new integration ();
 		
@@ -112,6 +115,7 @@ class Home extends Controller {
 		// Save userId in Cookie
 		$_COOKIE [COOKIE_NAME] = $this->authUser->remember_token;
 	}
+	
 	private function addUser() {
 		$name = isset ( $_POST ['name'] ) ? $_POST ['name'] : null;
 		$email = isset ( $_POST ['email'] ) ? $_POST ['email'] : null;

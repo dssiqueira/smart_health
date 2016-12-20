@@ -150,7 +150,7 @@ class Admin extends Controller {
 		foreach ( $users as $singleUser ) {
 			$integrations = $integrationModel->getAllIntegrationsByUserId($singleUser->id);
 
-			print '<br/>Name: ' . $singleUser->name . '  Created at: ' . $singleUser->created_at . '  ' . '  Deleted? ' . $singleUser->deleted . '</br>';
+			print '<br/><h4>Name: ' . $singleUser->name . '</h4> <h5>Created at: ' . $singleUser->created_at . '  ' . '  Deleted? ' . $singleUser->deleted . '</h5></br>';
 				
 			// And each integration of this user
 			foreach ($integrations as $integration) {
@@ -164,7 +164,7 @@ class Admin extends Controller {
 							strtotime ( $stravaActivities [0] ['start_date_local'] ), 
 							$stravaActivities [0] ['type'], 
 							$stravaActivities [0] ['distance'], 
-							'0' ); // no calories for Stravia =(
+							'0' ); // no calories for Strava =(
 					
 					if ($retAct) {
 						print '    Strava activity updated - ' . $stravaActivities [0] ['start_date_local'] . '</br>';
@@ -174,28 +174,37 @@ class Admin extends Controller {
 								
 				} elseif ($integration->app_id == RUNKEEPER_ID) {
 					// Save ALL activities for Runkeeper
-					
-					$rkActivities = $rkAPI->getAllActivities ();
-					
-					require_once APP . 'models/activityModel.php';
-					$activitiesModel = new ActivityModel ( $this->db );
+					$rkAPI->setRunkeeperToken( $integration->token );
+					$rkActivities = $rkAPI->getAllActivities();
 					
 					$size = $rkActivities ['size'];
 					if (!isset($size)) {
 						$size = 0;
 					}
+					// Page size is 99
+					if ($size > 99) {
+						$size = 99;
+					}
 
-					for ($i = 0; $i = $size-1; $i++) {
-						$retAct->insertActivity ( 
-								$integration->id, 
-								strtotime ( $rkActivities ['items'] [$i] ['start_time'] ), 
-								$rkActivities ['items'] [$i] ['type'], 
-								$rkActivities ['items'] [$i] ['total_distance'], 
-								$rkActivities ['items'] [$i] ['total_calories'] );				
+					for ($i = 0; $i <= $size-1; $i++) {
+
+						$start_time = $rkActivities ['items'] [$i] ['start_time'];
+						$type = $rkActivities ['items'] [$i] ['type'];
+						$total_distance = $rkActivities ['items'] [$i] ['total_distance'];
+						$total_calories = $rkActivities ['items'] [$i] ['total_calories'];
+						/*
+						ADD VALIDATION HERE
+						 */
+						if ($total_distance < 999999) {
+							// Save Activity
+							$retAct = $activityModel->insertActivity ( 
+								$integration->id, strtotime($start_time), $type, $total_distance, $total_calories);
+						}
+
 						if ($retAct) {
-							print '    Runkeeper activity updated - ' . $rkActivities ['items'] [0] ['start_time'] . '</br>';
+							print '    Runkeeper activity updated - ' . $start_time . '</br>';
 						} else {
-							print '    Runkeeper activity ('. $rkActivities ['items'] [0] ['start_time'] .') already updated </br>';			
+							print '    Runkeeper activity ('. $start_time .') already updated </br>';			
 						}
 					}
 					

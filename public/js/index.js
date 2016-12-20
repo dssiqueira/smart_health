@@ -16,7 +16,8 @@
 	    }
 	    document.body.appendChild(form);
 	    form.submit();
-	  }
+	}
+	
     function onSignIn(googleUser) {
       var profile = googleUser.getBasicProfile();
       var domain = profile.getEmail().split("@");
@@ -27,12 +28,16 @@
       }
     }
 
-    function renderButton() {
-      gapi.signin2.render('my-signin2', {
-        'scope': 'profile email',
-        'width': 240,
-        'height': 50,
-        'longtitle': true,
-        'onsuccess': onSignIn
-      });
+    function onLoad() {
+    	gapi.load('auth2', function() {
+	    	gapi.auth2.init();
+	    });
+	    // Works only on Welcome page
+	    gapi.signin2.render('index-my-signin', {
+        	'scope': 'profile email',
+        	'width': 240,
+        	'height': 50,
+        	'longtitle': true,
+        	'onsuccess': onSignIn
+      	});
     }

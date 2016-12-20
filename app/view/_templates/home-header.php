@@ -1,89 +1,60 @@
-<html>
-<meta charset="UTF-8">
-<title>CI&T Health</title>
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet"
-	href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="CI&T Health">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<title>CI&amp;T Health</title>
 
-<head>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
-<link href='https://fonts.googleapis.com/css?family=Roboto:100'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet"
-	href="https://code.getmdl.io/1.1.3/material.light_blue-pink.min.css" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<meta name="google-signin-client_id"
-	content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Page styles -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="/css/material.min.css" type='text/css'>
+	<link rel="stylesheet" href="/css/bootstrap.min.css" type='text/css'>
+	<link rel="stylesheet" href="/css/styles.css" type='text/css'>
+	<link rel="stylesheet" href="/css/roboto.css" type='text/css'>
 
-<style>
-.card-square.mdl-card {
-	width: 320px;
-	height: 320px;
-}
+	<meta name="google-signin-client_id" content="1004959689078-0tc7p0enbjr3eq9h2p2j72pmt1g0g7u2.apps.googleusercontent.com">
 
-.card-square>.mdl-card__title {
-	background: url('img/dog.png') bottom right 15% no-repeat #46B6AC;
-}
-
-.counter {
-	position: absolute;
-	right: 20px;
-	padding-top: 10px;
-}
-
-.mdl-dialog {
-	width: 500px;
-	text-align: center;
-}
-.material-icons{
-	padding-top: 10px;
-}
-</style>
-<script>
-		  function signOut() {
-		    var auth2 = gapi.auth2.getAuthInstance();
-		    auth2.signOut().then(function () {
-		    	window.location = "/";
-		    });
-		  }
-	      function onLoad() {
-	        gapi.load('auth2', function() {
-	          gapi.auth2.init();
+	<script>
+		function signOut() {
+			var auth2 = gapi.auth2.getAuthInstance();
+			auth2.signOut().then(function () {
+				window.location = "/";
+			});
+			auth2.disconnect();
+		}
+	    function onLoad() {
+	    	gapi.load('auth2', function() {
+	        	gapi.auth2.init();
 	        });
-	      }
-		</script>
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="http://getaninsight.com/id/wi/1171/jq/1/b/0790D5/p/r/t/y/"></script> 
+	    }
+	</script>
+</head>
+
 </head>
 <body>
 	<!-- Always shows a header, even in smaller screens. -->
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-
-		<header class="mdl-layout__header" style="color: #000">
+		<header class="mdl-layout__header ciandt-blue">
 			<div class="mdl-layout__header-row">
 				<!-- Title -->
-
-				<div class="mdl-layout-title"><img src="/img/CIT.png" width="80px"><span style="font-size: 28px; position: absolute; margin-top: 6px;">Health</span></div>
+				<div class="mdl-layout-title header-title">
+				  <img src="/img/logo_cit2.png" width="15%">
+				  <span> Health</span>
+				</div>
 				<!-- Add spacer, to align navigation to the right -->
 				<div class="mdl-layout-spacer"></div>
 				<!-- Navigation. We hide it in small screens. -->
 				<nav class="mdl-navigation mdl-layout--large-screen-only">
 					<a class="mdl-navigation__link" href="/home">Home</a>
 					<a class="mdl-navigation__link" href="/home/nextstep">Next Step</a>
-					<a class="mdl-navigation__link" href="#" onclick="signOut();">Sign
-						Out</a>
+					<a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
 				</nav>
-				<a href="<?php print SMARTCANVAS_PROFILE_URL . $user->email; ?>"
-					target="_blank"><img src="<?php print $user->image_path;?>"
-					style="width: 50px; border-radius: 30px;"></img></a>
-			
+				<div class="header-icon">
+					<a href="<?php print SMARTCANVAS_PROFILE_URL . $user->email; ?>"
+						target="_blank"><img src="<?php print $user->image_path;?>"></img></a>
+				</div>
 			</div>
 		</header>
 		<div class="mdl-layout__drawer">
@@ -94,5 +65,7 @@
 				<a class="mdl-navigation__link" href="#" onclick="signOut();">Sign Out</a>
 			</nav>
 		</div>
-		<main class="mdl-layout__content">
-		<div class="page-content">
+		<main>
+        <div class="page-content">
+          <div class="container">
+            <!-- CONTENT -->

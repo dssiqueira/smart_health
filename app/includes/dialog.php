@@ -2,9 +2,9 @@
 
 <dialog class="mdl-dialog" style="z-index: 999;">
 <div>
-	<img src="img/health.png">
+	<img src="img/health.png" width="100%">
 </div>
-<h4 class="mdl-dialog__title">Welcome to CI&T Health!</h4>
+<h4 class="mdl-dialog__title">Welcome to CI&amp;T Health!</h4>
 <div class="mdl-dialog__content">
 	<p>Please connect your favorite App and let's go!</p>
 </div>

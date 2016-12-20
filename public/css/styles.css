@@ -1,0 +1,220 @@
+@CHARSET "UTF-8";
+
+/*
+ * CI&T Colors
+ */
+
+.ciandt-blue {
+  background-color: #26c6da !important;
+  color:#ffffff !important;
+}
+
+.ciandt-blue-text {
+  color: #26c6da !important;
+}
+
+.ciandt-red {
+  background-color: #d71f3c !important;
+  color:#ffffff !important;
+}
+
+.ciandt-red-text {
+  color: #d71f3c !important;
+}
+
+
+/*
+ * Index
+ */
+
+.background-image {
+	background: url('/img/background1.jpg') no-repeat center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.index-card {
+	text-align: center;
+	margin-top:30px;
+}
+
+.index-card > p {
+    color: #ffffff;
+}
+
+.index-logo-name {
+	text-align: right;
+	margin-top: 10px;
+	font-size: 50px;
+	font-weight: 500;
+}
+
+.index-counter-text {
+	margin-top: 50px;
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.index-text {
+	color: #ffffff;
+	font-size: 24px;
+	margin-top: 10px;
+	font-weight: 300;
+}
+
+.index-user-list{
+	margin-top: 30px;
+}
+
+.index-user-list a img {
+	border-radius: 30px;
+	width: 50px;
+}
+
+.index-my-signin {
+	margin-left: 17%;
+	margin-top: 30px;
+}
+
+
+/*
+ * Header
+ */
+
+.header-title > img {
+	vertical-align: bottom;
+	font-weight: 500;
+}
+
+.header-icon > a > img {
+	width: 50px;
+	border-radius: 30px;
+}
+
+.material-icons{
+	padding-top: 10px;
+}
+
+/*
+ * Footer
+ */
+.footer-style{
+	background-color: rgb(224, 224, 224);
+	text-align: center;
+}
+
+.footer-text {
+	float: left;
+}
+
+.footer-text > p {
+	font-weight: 500;
+}
+
+.footer-dev {
+	float: right;
+}
+
+.footer-dev-text {
+	font-weight: 300;
+}
+
+.footer-dev-icon {
+	float: right;
+}
+
+.footer-dev-icon > a {
+	text-decoration:none;
+}
+
+.footer-dev-icon > a > img {
+	width: 50px;
+	border-radius: 30px;
+}
+
+.footer-feedback {
+
+}
+
+.footer-feedback a {
+	color: #ffffff;
+}
+
+/*
+ * Cards
+ */
+
+.mdl-cell--3-col.card-square.mdl-card {
+	width: 260px;
+	height: 300px;
+}
+
+.mdl-cell--4-col.card-square.mdl-card {
+	width: 320px;
+	height: 300px;
+}
+
+.counter {
+	position: absolute;
+	right: 20px;
+	padding-top: 10px;
+}
+
+/*
+ * Home
+ */
+
+.mdl-dialog {
+	width: 500px;
+	text-align: center;
+}
+
+.home-text {
+	font-weight: 300;
+	color:  #333333;
+}
+
+/*
+ * Next Step
+ */
+.nextstep-icon {
+	text-align: center;
+	min-width: 260px;
+}
+
+.mdl-cell.mdl-cell--3-col.nextstep-space {
+	min-width: 260px;
+	display: block;
+}
+
+
+/*
+ * MOBILE VERSION
+ */
+@media (max-width : 1024px)
+{
+	.index-logo-name {
+		font-size: 35px;
+	}
+	
+	.index-logo-cit {
+
+	}
+
+	.nextstep-icon {
+		display: none;
+	}
+
+	.mdl-cell.mdl-cell--3-col.nextstep-space {
+		display: none;
+	}
+}
+
+@media (min-width: 1199px)
+{
+	.mdl-cell.mdl-cell--3-col.nextstep-space {
+		display: none;
+	}
+}

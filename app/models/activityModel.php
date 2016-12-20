@@ -78,9 +78,9 @@ class ActivityModel extends Model {
 	 * @return integer
 	 */
 	public function getTotalDistance() {
-		$sql = "SELECT sum(distance)  as sum FROM activities WHERE deleted = :deleted";
+		$sql = "SELECT sum(distance) as sum FROM activities WHERE deleted = :deleted";
 		$parameters = array (
-			':deleted' => 0
+			':deleted' => DELETED_FALSE
 		);
 		
 		$query = $this->db->prepare ( $sql );
